@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#030508">
-  <meta name="description" content="进入太虚：面向人与 AI 协作开发的全平台编程语言。">
+  <meta name="description" content="进入太虚：面向人与 AI 协作开发的全平台编程语言。泛型、24 模块标准库、纯太虚 AOT、内置 MCP。">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/game.css">
   <title>太虚编程语言 · 进入太虚</title>
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
 </head>
 <body>
   <main class="world" aria-label="太虚编程语言交互式官网">
     <canvas id="universe" aria-hidden="true"></canvas>
     <div class="noise" aria-hidden="true"></div>
     <header class="hud-top">
-      <button class="brand" data-scene="origin" aria-label="返回太虚之门"><img src="./assets/taixu-mark.svg" alt=""><span>太虚</span><small>TAIXU / 0.20</small></button>
+      <button class="brand" data-scene="origin" aria-label="返回太虚之门"><img src="./assets/taixu-mark.svg" alt=""><span>太虚</span><small>TAIXU / 0.2.14</small></button>
       <div class="system-state"><i></i><span>RUNTIME ONLINE</span><b id="fps">60</b><small> FPS</small></div>
       <div class="external"><a href="./learn/">文档</a><a href="https://github.com/yockii/taixu-project">GITHUB ↗</a></div>
     </header>
@@ -23,7 +26,7 @@
       <p class="kicker">PROJECT TAIXU / 太虚计划</p>
       <h1>进入<br><em>太虚</em></h1>
       <p>面向人与 AI 协作的全平台编程语言。</p>
-      <button class="enter" id="enter">进入系统 <span>→</span></button>
+      <button class="enter" id="enter">进入太虚世界 <span>→</span></button>
       <small>拖动视角 · 点击节点 · WASD 移动</small>
     </section>
 
@@ -52,6 +55,6 @@
     <div class="big-bang" id="big-bang" aria-hidden="true"></div>
     <noscript><div class="fallback"><h1>太虚编程语言</h1><p>面向人与 AI 协作的全平台编程语言。</p><a href="./learn/">阅读教程</a></div></noscript>
   </main>
-  <script type="module" src="./assets/three-scene.js"></script>
+  <script type="module" src="./assets/three-scene.js?v=3"></script>
 </body>
 </html>
