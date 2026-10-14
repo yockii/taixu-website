@@ -24,6 +24,7 @@ cd dist && python -m http.server 8907
 | `dist/learn/` | 学习：快速开始、十二章教程、标准库与生态 |
 | `dist/performance/` | 性能：公开实测数据（对齐 `taixu-project/docs/build/beta-readiness-metrics-*.md`） |
 | `dist/ai/` | AI 开发方式：mcp / lsp 双通道、Taixu Skill |
+| `dist/preview/` | 新版官网设计预览（`taixu.icu/preview/`，noindex）：WebGL2 程序化门体首页 + 学习 / 手册 / 下载 / 性能 / AI 子页；自包含，不引用站点其余资源。正式版计划以太虚实现 |
 
 首页四个板块的文案在 `dist/assets/content.js`——改文字只需要动这一个文件。
 

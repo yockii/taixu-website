@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#05070b">
+<meta name="description" content="学习太虚：快速开始、入门教程与从其他语言迁移。">
+<title>学习 · 太虚</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><mask id="tx-cuts" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><rect y="19.5" width="64" height="2.5" fill="#000"/><rect y="30.25" width="64" height="3.5" fill="#000"/><rect y="42" width="64" height="2.5" fill="#000"/></mask><symbol id="tx-mark" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="10" mask="url(#tx-cuts)"/><path d="M35 19.5C27.3 23.1 26.8 28.2 31.7 32.2C37.6 37 37.7 42.2 29 47.5" fill="none" stroke="#20e6d2" stroke-width="1.6" stroke-linecap="round"/></symbol></defs></svg>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="太虚首页">
+      <svg class="brand-mark" aria-hidden="true"><use href="#tx-mark"></use></svg>
+      <span class="brand-name">太虚</span>
+      <span class="brand-ver">0.2.14</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="主导航">
+      <a href="../learn/" aria-current="page">学习</a>
+      <a href="../docs/">手册</a>
+      <a href="../docs/#stdlib">标准库</a>
+      <a href="../download/">下载</a>
+      <a href="../performance/">性能</a>
+      <a href="../ai/">AI 协作</a>
+    </nav>
+    <div class="header-tools">
+      <div class="search">
+        <label class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="site-search" type="search" placeholder="搜索文档、标准库…" aria-label="搜索文档" autocomplete="off">
+          <kbd>Ctrl K</kbd>
+        </label>
+      </div>
+      <a class="btn btn-sm" href="https://github.com/yockii/taixu-project">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero gridbg">
+  <canvas class="constellation" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="head" style="max-width:820px;gap:20px">
+      <p class="kicker">Learn Taixu</p>
+      <h1>从第一行代码，<br><em>到完整应用。</em></h1>
+      <p class="lead">教程带你走通，手册让你随时查清。语法保持朴实，已有的编程经验可以直接迁移。</p>
+    </div>
+    <div class="grid cols-auto-260" data-reveal data-stagger>
+      <a class="card featured" href="#quickstart"><span class="tag">从这里开始</span><h3>快速开始</h3><p>下载、自检、跑起第一个程序，五分钟内完成。</p></a>
+      <a class="card" href="#tutorial"><span class="tag muted">系统学习</span><h3>入门教程</h3><p>基础、进阶、应用三段，每一步都附可运行样例。</p></a>
+      <a class="card" href="#migrate"><span class="tag muted">已有经验</span><h3>从其他语言迁移</h3><p>太虚有意没有的写法，以及对应的写法。</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section first" id="quickstart">
+  <div class="wrap split top">
+    <div class="stack gap-28">
+      <div class="head" data-reveal>
+        <p class="kicker">01 / 快速开始</p>
+        <h2 class="h-section">解压即用，<br>三步跑起第一个程序。</h2>
+        <p class="lead">太虚绿色免安装，不依赖任何外部工具链。包里自带标准库、桌面 GUI 框架、可运行样例与文档。</p>
+      </div>
+      <ol class="timeline">
+        <li><span class="dot">1</span><span class="tx"><b>下载并解压</b><span>选择对应平台的压缩包，解压到任意目录。<a href="../download/">前往下载 →</a></span></span></li>
+        <li><span class="dot">2</span><span class="tx"><b>自检</b><span><code class="inline-code">taixu --version</code> 打印版本与构建信息。</span></span></li>
+        <li><span class="dot">3</span><span class="tx"><b>生成项目并运行</b><span><code class="inline-code">taixu init</code> 生成脚手架，<code class="inline-code">taixu run</code> 直接运行源码。</span></span></li>
+      </ol>
+    </div>
+    <div class="stack wide" style="gap:16px">
+      <div class="window">
+        <div class="window-bar"><span>terminal</span><button class="copy-btn" type="button" style="min-height:32px" aria-label="复制全部命令">复制</button></div>
+<pre><code data-lang="bash">$ ./taixu --version
+$ taixu init hello --template=console
+$ cd hello
+$ taixu run src/main.tx</code></pre>
+        <div class="out mono"><div>Hello, 太虚!</div></div>
+      </div>
+      <div class="card" style="background:var(--bg-1)">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><h3 style="font-size:17px">想写界面？</h3><span class="mono" style="font-size:12px;color:var(--dim)">gui 模板</span></div>
+        <p>模板本身就是一个最小应用。改一改界面上的文字，重新运行，就是 GUI 开发的全部节奏；加上 <code class="inline-code">--replay</code> 还能无头校验。</p>
+<pre class="mono" style="margin:0;font-size:13.5px;line-height:1.9;overflow-x:auto"><code data-lang="bash">$ taixu init gui mytool
+$ cd mytool
+$ taixu run main.tx                          # 真窗运行
+$ taixu run main.tx --replay=replay.txt      # 无头校验</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="tutorial">
+  <div class="wrap stack gap-48">
+    <div class="head-row">
+      <div class="head" data-reveal>
+        <p class="kicker">02 / 入门教程</p>
+        <h2 class="h-section">三个阶段，循序渐进。</h2>
+        <p class="lead">每一步一页正文，配可运行的样例；样例输出都是真实运行结果。</p>
+      </div>
+      <span class="badge">教程撰写中</span>
+    </div>
+
+    <div class="stage">
+      <div class="stage-head"><span class="kicker">基础</span><span class="mono">入门第一周</span><i></i></div>
+      <div class="grid cols-auto-220" data-reveal data-stagger>
+        <div class="card lesson spot"><span class="no">01</span><h3>安装与第一个程序</h3><p>工具链、项目脚手架与 main 的约定。</p><span class="badge sm">撰写中</span></div>
+        <div class="card lesson spot"><span class="no">02</span><h3>值与类型</h3><p>内建类型、结构体与枚举的值语义。</p><span class="badge sm">撰写中</span></div>
+        <div class="card lesson spot"><span class="no">03</span><h3>控制流</h3><p>严格的条件、循环与 switch 表达式。</p><span class="badge sm">撰写中</span></div>
+        <div class="card lesson spot"><span class="no">04</span><h3>失败通道</h3><p>错误与缺值两条通道，以及如何处理它们。</p><span class="badge sm">撰写中</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stage-head"><span class="kicker">进阶</span><span class="mono">组织更大的程序</span><i></i></div>
+      <div class="grid cols-auto-220" data-reveal data-stagger>
+        <div class="card lesson spot"><span class="no">05</span><h3>堆与引用</h3><p>何时需要共享，何时保持拷贝。</p><span class="badge sm">撰写中</span></div>
+        <div class="card lesson spot"><span class="no">06</span><h3>模块与标准库</h3><p>拆分模块，用好随包的标准库。</p><span class="badge sm">撰写中</span></div>
+        <div class="card lesson spot"><span class="no">07</span><h3>闭包与事件</h3><p>函数作为值，以及事件驱动的写法。</p><span class="badge sm">撰写中</span></div>
+        <div class="card lesson spot"><span class="no">08</span><h3>异步与任务</h3><p>并发地做事，并控制并发的上限。</p><span class="badge sm">撰写中</span></div>
+        <div class="card lesson spot"><span class="no">09</span><h3>泛型</h3><p>写一次，适配多种类型，零运行期开销。</p><span class="badge sm">撰写中</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stage-head"><span class="kicker">应用</span><span class="mono">做出完整的东西</span><i></i></div>
+      <div class="grid cols-auto-260" data-reveal data-stagger>
+        <div class="card lesson spot"><span class="no">10</span><h3>工具链与发布</h3><p>格式化、测试、文档与原生编译，单文件交付。</p><span class="badge sm">撰写中</span></div>
+        <div class="card lesson spot"><span class="no">11</span><h3>桌面 GUI</h3><p>从模板出发做一个小工具，并让它可以自动验证。</p><span class="badge sm">撰写中</span></div>
+        <div class="card lesson spot"><span class="no">12</span><h3>与 Agent 协作</h3><p>让 AI 写代码，并用工具链验证它写得对不对。</p><span class="badge sm">撰写中</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="migrate">
+  <div class="wrap stack gap-40">
+    <div class="head" data-reveal>
+      <p class="kicker">03 / 从其他语言迁移</p>
+      <h2 class="h-section">这些写法，太虚有意没有。</h2>
+      <p class="lead">它们是刻意排除的。遇到时不必四处找，编译器会明确告诉你；下表给出对应的写法。</p>
+    </div>
+    <div class="table-box" data-reveal>
+      <table>
+        <thead><tr><th scope="col" style="width:24%">习惯写法</th><th scope="col" style="width:36%">在太虚中</th><th scope="col">为什么</th></tr></thead>
+        <tbody>
+          <tr><td class="mono warn">n += 1</td><td class="mono">n = n + 1</td><td style="color:var(--muted)">没有复合赋值，每次赋值都写完整。</td></tr>
+          <tr><td class="mono warn">cond ? a : b</td><td><code class="inline-code">catch</code> 兜底、<code class="inline-code">if</code> / <code class="inline-code">else</code> 或 switch 表达式</td><td style="color:var(--muted)">没有三目运算符。</td></tr>
+          <tr><td class="mono warn">if (n)</td><td class="mono">if (n != 0)</td><td style="color:var(--muted)">条件必须是 bool，没有 truthiness。</td></tr>
+          <tr><td class="mono warn">1 == "1"</td><td>编译错误</td><td style="color:var(--muted)"><code class="inline-code">==</code> 不做隐式转换。</td></tr>
+          <tr><td class="mono warn">throw / try</td><td>返回 <code class="inline-code">T | Error</code>，用 <code class="inline-code">?</code> 传播、<code class="inline-code">catch</code> 处理</td><td style="color:var(--muted)">失败是类型的一部分，调用方一眼可见。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap grid cols-auto-320">
+    <div class="card" style="padding:36px;background:var(--bg)">
+      <span class="tag muted">自己写</span>
+      <h3 style="font-size:28px">沿教程掌握。</h3>
+      <p style="font-size:15.5px">从可运行的示例进入语言手册、标准库参考与 GUI 开发。</p>
+      <a class="text-link" href="../docs/">打开手册 →</a>
+    </div>
+    <div class="card" style="padding:36px;background:var(--bg)">
+      <span class="tag muted">让 AI 写</span>
+      <h3 style="font-size:28px">描述目标即可。</h3>
+      <p style="font-size:15.5px">支持 Taixu Skill 的 Agent 按规范生成、测试，并根据结果继续修复。</p>
+      <a class="text-link" href="../ai/">了解 Agent 工作流 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <a class="brand" href="../" aria-label="太虚首页"><svg class="brand-mark" aria-hidden="true"><use href="#tx-mark"></use></svg><span class="brand-name">太虚</span></a>
+        <p>面向人与 AI 协作的全平台编程语言。</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="f-learn"><h2 id="f-learn">学习</h2><a href="../learn/#quickstart">快速开始</a><a href="../learn/#tutorial">入门教程</a><a href="../docs/">语言手册</a><a href="../docs/#stdlib">标准库</a></nav>
+      <nav class="footer-col" aria-labelledby="f-tools"><h2 id="f-tools">工具</h2><a href="../download/">下载</a><a href="../download/#editor">VS Code 插件</a><a href="../ai/#channels">MCP 接入</a><a href="../docs/#reference">诊断码</a></nav>
+      <nav class="footer-col" aria-labelledby="f-proj"><h2 id="f-proj">项目</h2><a href="https://github.com/yockii/taixu-project">GitHub ↗</a><a href="https://github.com/yockii/taixu-project/issues">问题反馈 ↗</a><a href="../performance/">性能实测</a><a href="https://github.com/yockii/taixu-project/releases">版本发布 ↗</a></nav>
+    </div>
+    <div class="footer-base"><span>© 2026 Project Taixu · Apache-2.0 / MIT</span><span>taixu.icu · 0.2.14</span></div>
+  </div>
+</footer>
+</body>
+</html>
