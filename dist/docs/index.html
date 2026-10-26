@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05070b">
+<meta name="description" content="太虚手册：语言指南、标准库、工具链与参考的目录与概览，链接到随版本维护的教程、速查与语言规范。对应 0.3.0-beta.1。">
+<title>手册 · 太虚</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+<script>document.documentElement.classList.add('js');addEventListener('unhandledrejection',function(e){var r=e.reason;if(r&&r.name==='AbortError'&&/transition/i.test(r.message))e.preventDefault();})</script>
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><mask id="tx-cuts" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><rect y="19.5" width="64" height="2.5" fill="#000"/><rect y="30.25" width="64" height="3.5" fill="#000"/><rect y="42" width="64" height="2.5" fill="#000"/></mask><symbol id="tx-mark" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="10" mask="url(#tx-cuts)"/><path d="M35 19.5C27.3 23.1 26.8 28.2 31.7 32.2C37.6 37 37.7 42.2 29 47.5" fill="none" stroke="#20e6d2" stroke-width="1.6" stroke-linecap="round"/></symbol></defs></svg>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+  <div class="wrap" style="max-width:1440px">
+    <a class="brand" href="../" aria-label="太虚首页">
+      <svg class="brand-mark" aria-hidden="true"><use href="#tx-mark"></use></svg>
+      <span class="brand-name">太虚</span>
+      <span class="brand-ver">0.3.0-beta.1</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="主导航">
+      <a href="../learn/">学习</a>
+      <a href="../docs/" aria-current="page">手册</a>
+      <a href="../docs/#stdlib">标准库</a>
+      <a href="../download/">下载</a>
+      <a href="../performance/">性能</a>
+      <a href="../ai/">AI 协作</a>
+    </nav>
+    <div class="header-tools">
+      <div class="search">
+        <label class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="site-search" type="search" placeholder="搜索文档、标准库…" aria-label="搜索文档" autocomplete="off">
+          <kbd>Ctrl K</kbd>
+        </label>
+      </div>
+      <a class="btn btn-sm" href="https://github.com/yockii/taixu-lang">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<div class="docs-bar">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="../">首页</a><span aria-hidden="true">/</span><span aria-current="page">手册</span></nav>
+    <div class="meta">
+      <label class="ver-select">版本
+        <select aria-label="文档版本"><option>0.3.0-beta.1（最新）</option></select>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="docs">
+  <aside class="docs-side" aria-label="手册目录">
+    <button class="side-toggle" type="button" aria-expanded="false" aria-controls="side-nav">手册目录<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    <nav class="side-nav" id="side-nav">
+      <div class="side-group"><h2>开始</h2><ul>
+        <li><a href="../docs/" aria-current="page"><span class="no">·</span>手册首页</a></li>
+        <li><a href="../learn/#quickstart"><span class="no">·</span>安装与快速开始</a></li>
+        <li><a href="../download/"><span class="no">·</span>下载与校验</a></li>
+      </ul></div>
+      <div class="side-group"><h2>语言指南</h2><ul>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/02-values-types.md"><span class="no">01</span>值与类型 ↗</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/03-control-flow.md"><span class="no">02</span>控制流 ↗</a></li>
+        <li><a href="../docs/failure-channels/"><span class="no">03</span>失败通道</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/05-heap-references.md"><span class="no">04</span>堆与引用 ↗</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/06-modules-stdlib.md"><span class="no">05</span>模块与导入 ↗</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/07-closures-events.md"><span class="no">06</span>闭包与函数类型 ↗</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/08-async-tasks.md"><span class="no">07</span>异步与任务 ↗</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/12-syntax-tour.md"><span class="no">08</span>泛型、接口与进阶语法 ↗</a></li>
+      </ul></div>
+      <div class="side-group"><h2>标准库</h2><ul>
+        <li><a href="#stdlib"><span class="no">·</span>模块总览</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/stdlib/README.md"><span class="no">·</span>标准库说明 ↗</a></li>
+      </ul></div>
+      <div class="side-group"><h2>工具链</h2><ul>
+        <li><a href="#toolchain"><span class="no">·</span>命令与选项</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/09-toolchain.md"><span class="no">·</span>编辑器、调试与发布 ↗</a></li>
+        <li><a href="../ai/"><span class="no">·</span>AI 协作</a></li>
+      </ul></div>
+      <div class="side-group"><h2>GUI</h2><ul>
+        <li><a href="#gui"><span class="no">·</span>现状说明</a></li>
+      </ul></div>
+      <div class="side-group"><h2>参考</h2><ul>
+        <li><a href="#reference"><span class="no">·</span>参考总览</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/quickref.md"><span class="no">·</span>速查手册 ↗</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/design/D3-s1-language-spec-v0.42.md"><span class="no">·</span>语言规范 ↗</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/ai/llm-guide-s1.md"><span class="no">·</span>AI 生成指南 ↗</a></li>
+      </ul></div>
+    </nav>
+  </aside>
+
+  <main class="docs-main" id="main">
+    <div class="doc-head">
+      <p class="kicker">Manual · 0.3.0-beta.1</p>
+      <h1>太虚手册</h1>
+      <p class="lead">这里给出语言、标准库与工具链的全貌，并链接到公开仓里随版本维护的教程、速查与语言规范（带 ↗ 的条目）。想按顺序学，请从<a href="../learn/">入门教程</a>开始。</p>
+    </div>
+
+    <div class="prose">
+      <h2 id="guide">语言指南</h2>
+      <p>按主题讲清语法与语义，包括边界情况和编译器会给出的诊断。语言的权威定义见<a href="https://github.com/yockii/taixu-lang/blob/main/docs/design/D3-s1-language-spec-v0.42.md">语言规范 ↗</a>。</p>
+      <div class="topic-grid">
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/02-values-types.md"><span class="no">01 ↗</span><b>值与类型</b><span>内建类型、定宽数值，struct 与 enum 的值语义</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/03-control-flow.md"><span class="no">02 ↗</span><b>控制流</b><span>严格的条件、循环、for-in 与 switch 表达式</span></a>
+        <a class="topic" href="../docs/failure-channels/"><span class="no">03</span><b>失败通道</b><span>T | Error 与 T?，? 与 catch，跨通道桥接</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/05-heap-references.md"><span class="no">04 ↗</span><b>堆与引用</b><span>new、Ref、Weak、List，成环与 --leak-check</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/06-modules-stdlib.md"><span class="no">05 ↗</span><b>模块与导入</b><span>import / export、寻径规则与自带的 Map、Set</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/07-closures-events.md"><span class="no">06 ↗</span><b>闭包与函数类型</b><span>捕获语义、函数类型字段与事件订阅</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/08-async-tasks.md"><span class="no">07 ↗</span><b>异步与任务</b><span>async / await、确定性调度、TaskGroup 与取消</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/12-syntax-tour.md"><span class="no">08 ↗</span><b>泛型、接口与进阶语法</b><span>类型参数、接口、错误 enum、生成器与 defer</span></a>
+      </div>
+
+      <h2 id="stdlib">标准库</h2>
+      <p>30 个模块，纯太虚写成，随包分发、零配置，用 <code>std/</code> 前缀导入，例如 <code>import { join } from "std/string";</code>。<code>Map&lt;K, V&gt;</code> 与 <code>Set&lt;T&gt;</code> 由编译器自带，不用 import。</p>
+      <div class="mod-groups">
+        <div class="mod-group"><h3>集合</h3><div class="mods"><span>std/collect</span><span>std/collections</span><span>std/map_set</span></div><p>泛型 map、filter、fold、sortBy、binarySearch 与堆；List 高阶工具；早期的非泛型 Map 与 Set。</p></div>
+        <div class="mod-group"><h3>文本</h3><div class="mods"><span>std/string</span><span>std/utf8</span><span>std/text</span><span>std/strconv</span><span>std/fmt</span></div><p>split、join、replace，Unicode 大小写与空白，UTF-8 码点，数值与字符串互转，<code>{}</code> 占位格式化。</p></div>
+        <div class="mod-group"><h3>字节与编码</h3><div class="mods"><span>std/bytes</span><span>std/base64</span><span>std/hash</span></div><p>字节缓冲与 hex，RFC 4648 base64，SHA-256。</p></div>
+        <div class="mod-group"><h3>数据格式</h3><div class="mods"><span>std/json</span><span>std/csv</span><span>std/regexp</span></div><p>JSON 解析与规范输出（对象键保持插入顺序），CSV，带步数上限的回溯正则。</p></div>
+        <div class="mod-group"><h3>压缩与图像</h3><div class="mods"><span>std/compress</span><span>std/image</span></div><p>DEFLATE、zlib、gzip 解压与存储式写出，PNG 解码为 RGBA8。</p></div>
+        <div class="mod-group"><h3>数学与排序</h3><div class="mods"><span>std/math</span><span>std/random</span><span>std/sort</span></div><p>数学函数，可设种子的伪随机数（同种子同序列），稳定排序。</p></div>
+        <div class="mod-group"><h3>时间</h3><div class="mods"><span>std/time</span><span>std/datetime</span></div><p>当前时间，确定性的日期格式化。</p></div>
+        <div class="mod-group"><h3>系统与文件</h3><div class="mods"><span>std/os</span><span>std/path</span><span>std/fs</span><span>std/dir</span><span>std/file</span></div><p>环境变量与命令行参数，路径处理，文件系统，递归建目录，流式文件读写。</p></div>
+        <div class="mod-group"><h3>网络</h3><div class="mods"><span>std/net</span></div><p>TCP 与最小的 HTTP 客户端。</p></div>
+        <div class="mod-group"><h3>并发与事件</h3><div class="mods"><span>std/task</span><span>std/pool</span><span>std/events</span></div><p>带并发上限的 TaskGroup 与超时，分道执行池，事件订阅与派发。</p></div>
+      </div>
+      <p>失败一律经 <code>T | Error</code> 返回，用 <code>?</code> 传播或 <code>catch</code> 处理。平台相关的部分按目标分别实现，同名模块在各目标上的导出面相同。各模块的关键导出见<a href="https://github.com/yockii/taixu-lang/blob/main/docs/quickref.md">速查手册 ↗</a>第 5 节；完整签名以 <code>taixu doc &lt;模块文件&gt;</code> 的输出或<a href="https://github.com/yockii/taixu-lang/tree/main/stdlib/src">标准库源码 ↗</a>为准。</p>
+
+      <h2 id="toolchain">工具链</h2>
+      <p>一个 <code>taixu</code> 可执行文件，一条子命令做一件事。完整用法以 <code>taixu --help</code> 为准。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">命令</th><th scope="col">用途</th></tr></thead>
+          <tbody>
+            <tr><td><code>taixu init</code></td><td>项目脚手架：<code>taixu init hello-app</code> 只生成 <code>hello-app/main.tx</code>；库骨架用 <code>taixu init library &lt;名字&gt;</code></td></tr>
+            <tr><td><code>taixu run</code></td><td>编译到临时目录并运行，转发退出码；文件名之后的参数交给程序</td></tr>
+            <tr><td><code>taixu build</code></td><td>生成单个原生可执行文件（<code>--out</code> 必填），<code>--target</code> 交叉编译</td></tr>
+            <tr><td><code>taixu test</code></td><td>运行一个文件里的 test 块，每块一个进程；退出码 0 全过、2 有失败、1 编译失败</td></tr>
+            <tr><td><code>taixu fmt</code></td><td>保守格式化：<code>--check</code> 检查，<code>--write</code> 就地写回</td></tr>
+            <tr><td><code>taixu doc</code></td><td><code>///</code> 文档注释生成 Markdown，或 <code>--format=json</code></td></tr>
+            <tr><td><code>taixu explain</code></td><td>解释诊断码并给出修复建议；无参数列出全表</td></tr>
+            <tr><td><code>taixu bench</code></td><td>编译一次、多轮运行计时（中位、最小、最大）</td></tr>
+            <tr><td><code>taixu disasm</code></td><td>按函数和源码行显示生成的汇编（目前只支持 x86_64）</td></tr>
+            <tr><td><code>taixu profile compile</code></td><td>编译画像</td></tr>
+            <tr><td><code>taixu capabilities</code> · <code>changes</code></td><td>工具链能力清单与兼容变更登记，<code>--format=json</code> 供自动化读取</td></tr>
+            <tr><td><code>taixu lsp</code></td><td>语言服务器：诊断、格式化、文档符号、悬停、签名提示、补全、定义、引用、重命名、语义着色</td></tr>
+            <tr><td><code>taixu dap</code></td><td>调试适配器：断点（含函数断点）、单步、步入、步出、调用栈、按名字看变量；暂不支持条件断点</td></tr>
+            <tr><td><code>taixu mcp</code></td><td>给 AI 代理的编译、运行、测试与调试工具；运行类工具缺省拒绝，须 <code>--trust-workspace</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">常用选项</th><th scope="col">适用</th><th scope="col">作用</th></tr></thead>
+          <tbody>
+            <tr><td><code>--target=…</code></td><td>build、disasm</td><td><code>windows</code>、<code>linux</code>、<code>macos</code>、<code>aarch64-macos</code>；任一平台可为其余平台编译</td></tr>
+            <tr><td><code>--out &lt;目录&gt;</code></td><td>build</td><td>输出目录（必填；只自动创建最后一层）</td></tr>
+            <tr><td><code>--leak-check</code></td><td>build、run、test</td><td>退出时报告仍存活的对象（引用成环等），退出码 23</td></tr>
+            <tr><td><code>--heap-check</code></td><td>build、run、test</td><td>页堆检查：越界、释放后使用、重复释放（很慢，只供调试）</td></tr>
+            <tr><td><code>--debug</code></td><td>build、run</td><td>插桩调试构建；run 时在标准输入输出上开调试会话</td></tr>
+            <tr><td><code>--strip</code></td><td>build</td><td>Linux、macOS 产物不带函数符号</td></tr>
+            <tr><td><code>--format=json</code></td><td>run、test、fmt、doc 等</td><td>机读输出</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="gui">GUI</h2>
+      <p>当前版本不提供 GUI：GUI 外部库正在补齐，暂未随包提供（现状见<a href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/10-gui.md">教程第 10 章 ↗</a>）。</p>
+
+      <h2 id="reference">参考</h2>
+      <div class="topic-grid">
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/quickref.md"><span class="no">QREF ↗</span><b>速查手册</b><span>类型、内建函数全表、诊断码、CLI 子命令与标准库模块</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/tutorial/12-syntax-tour.md"><span class="no">KW ↗</span><b>关键字与语法</b><span>24 个关键字、字面量与转义、语法糖</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/quickref.md"><span class="no">ERR ↗</span><b>诊断码</b><span>70 个：1xxx 词法 · 2xxx 语法 · 30xx 检查 · 31xx 代码生成 · 4xxx 运行期；<code>taixu explain</code> 同源</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/design/D3-s1-language-spec-v0.42.md"><span class="no">SPEC ↗</span><b>语言规范</b><span>语言的权威定义，含外部函数接口（FFI）</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/ai/llm-guide-s1.md"><span class="no">AI ↗</span><b>AI 生成指南</b><span>面向大模型的语言生成指南与常见误写自检</span></a>
+        <a class="topic" href="https://github.com/yockii/taixu-lang/blob/main/docs/ai/toolchain-changes.md"><span class="no">CHG ↗</span><b>工具链兼容变更</b><span>与 <code>taixu changes</code> 对应的变更登记</span></a>
+      </div>
+    </div>
+  </main>
+
+  <aside class="docs-toc" aria-label="本页目录">
+    <h2>本页目录</h2>
+    <ul>
+      <li><a href="#guide">语言指南</a></li>
+      <li><a href="#stdlib">标准库</a></li>
+      <li><a href="#toolchain">工具链</a></li>
+      <li><a href="#gui">GUI</a></li>
+      <li><a href="#reference">参考</a></li>
+    </ul>
+    <div class="toc-extra">
+      <a href="https://github.com/yockii/taixu-lang/issues">报告文档问题 ↗</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap" style="padding-top:32px;padding-bottom:32px">
+    <div class="footer-base" style="border-top:0;padding-top:0"><span>© 2026 Project Taixu · Apache-2.0 OR MIT</span><span>手册随语言版本更新 · 0.3.0-beta.1</span></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05070b">
+<meta name="description" content="下载太虚 0.3.0-beta.1（首次公测）：Windows x86_64、Linux x86_64、macOS x86_64 与 Apple 芯片，解压即用，附 SHA-256 校验和。">
+<title>下载 · 太虚</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+<script>document.documentElement.classList.add('js');addEventListener('unhandledrejection',function(e){var r=e.reason;if(r&&r.name==='AbortError'&&/transition/i.test(r.message))e.preventDefault();})</script>
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><mask id="tx-cuts" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><rect y="19.5" width="64" height="2.5" fill="#000"/><rect y="30.25" width="64" height="3.5" fill="#000"/><rect y="42" width="64" height="2.5" fill="#000"/></mask><symbol id="tx-mark" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="10" mask="url(#tx-cuts)"/><path d="M35 19.5C27.3 23.1 26.8 28.2 31.7 32.2C37.6 37 37.7 42.2 29 47.5" fill="none" stroke="#20e6d2" stroke-width="1.6" stroke-linecap="round"/></symbol></defs></svg>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="太虚首页">
+      <svg class="brand-mark" aria-hidden="true"><use href="#tx-mark"></use></svg>
+      <span class="brand-name">太虚</span>
+      <span class="brand-ver">0.3.0-beta.1</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="主导航">
+      <a href="../learn/">学习</a>
+      <a href="../docs/">手册</a>
+      <a href="../docs/#stdlib">标准库</a>
+      <a href="../download/" aria-current="page">下载</a>
+      <a href="../performance/">性能</a>
+      <a href="../ai/">AI 协作</a>
+    </nav>
+    <div class="header-tools">
+      <div class="search">
+        <label class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="site-search" type="search" placeholder="搜索文档、标准库…" aria-label="搜索文档" autocomplete="off">
+          <kbd>Ctrl K</kbd>
+        </label>
+      </div>
+      <a class="btn btn-sm" href="https://github.com/yockii/taixu-lang">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero gridbg">
+  <canvas class="constellation" aria-hidden="true"></canvas>
+  <div class="wrap split" style="gap:48px">
+    <div class="head" style="gap:20px">
+      <p class="kicker">Download · 0.3.0-beta.1</p>
+      <h1>下载<em>太虚</em></h1>
+      <p class="lead">绿色免安装，解压即用。不需要安装器，也不需要 C 编译器、汇编器或链接器。</p>
+      <p class="lead" style="font-size:15px">0.3.0-beta.1 是首次公测版：beta 不承诺可靠性与兼容性，可能遇到错误、崩溃或错误的结果。欢迎把问题反馈到 <a href="https://github.com/yockii/taixu-lang/issues">Issues ↗</a>。</p>
+      <p class="chip">发布日期 <span style="color:var(--text)">2026-10-26</span> · 许可证 <span style="color:var(--text)">Apache-2.0 OR MIT</span></p>
+    </div>
+    <div class="card featured energy" id="rec" style="padding:32px;gap:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span class="tag">推荐下载</span>
+        <span class="mono" style="font-size:12px;color:var(--dim)" id="rec-arch"></span>
+      </div>
+      <h2 style="font-size:30px;font-weight:800" id="rec-name">全部平台</h2>
+      <a class="btn btn-primary" id="rec-link" href="#all">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
+        <span style="overflow-wrap:anywhere" id="rec-btn">查看全部平台</span>
+      </a>
+      <dl class="kv">
+        <div><dt>大小</dt><dd id="rec-size">—</dd></div>
+        <div><dt>SHA-256</dt><dd id="rec-sha">—</dd></div>
+        <div><dt>可执行文件</dt><dd id="rec-exe">—</dd></div>
+      </dl>
+      <p style="font-size:13.5px;line-height:1.7;color:var(--dim)"><span id="rec-why"></span>其他平台见<a href="#all">全部平台</a>。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section first" id="all">
+  <div class="wrap stack gap-40">
+    <div class="head" data-reveal>
+      <p class="kicker">01 / 全部平台</p>
+      <h2 class="h-section">四个目标平台。</h2>
+      <p class="lead">任一平台的编译器都能为其余平台交叉编译（<code class="inline-code">--target=windows|linux|macos|aarch64-macos</code>）。Linux 产物静态链接、不依赖 libc；macOS 需要 13 及以上。</p>
+    </div>
+    <!-- 安装包数据只在这张表里维护：文件名、大小、SHA-256、下载地址。上方“推荐下载”由 site.js 从这里取数。 -->
+    <div class="table-box" data-reveal>
+      <table class="release-table">
+        <thead><tr><th scope="col">平台</th><th scope="col">架构</th><th scope="col">文件</th><th scope="col">大小</th><th scope="col">SHA-256</th><th scope="col"><span class="sr-only">下载</span></th></tr></thead>
+        <tbody>
+          <tr data-platform="windows" data-exe="taixu.exe"><td class="p-name"><b>Windows</b></td><td class="mono p-arch">x86_64</td><td class="mono p-file">taixu-0.3.0-beta.1-x86_64-windows.zip</td><td class="mono p-size"><span class="p-mb">9.3 MB</span><small>9787777 字节</small></td><td class="mono p-sha">c8311435e67ec4fdc705c21ec8f8745e3834985cbc59c0e8d144d0dcad0d83fd</td><td style="text-align:right"><a class="btn btn-sm" href="https://github.com/yockii/taixu-lang/releases/download/v0.3.0-beta.1/taixu-0.3.0-beta.1-x86_64-windows.zip">下载</a></td></tr>
+          <tr data-platform="linux" data-exe="taixu"><td class="p-name"><b>Linux</b></td><td class="mono p-arch">x86_64 · 静态链接</td><td class="mono p-file">taixu-0.3.0-beta.1-x86_64-linux.tar.gz</td><td class="mono p-size"><span class="p-mb">9.3 MB</span><small>9793740 字节</small></td><td class="mono p-sha">c3469139b9ae9bdb4ec77d542a339e339ea4e622535fcbf1fe236b61b210d4b5</td><td style="text-align:right"><a class="btn btn-sm" href="https://github.com/yockii/taixu-lang/releases/download/v0.3.0-beta.1/taixu-0.3.0-beta.1-x86_64-linux.tar.gz">下载</a></td></tr>
+          <tr data-platform="macos-x64" data-exe="taixu"><td class="p-name"><b>macOS（Intel）</b></td><td class="mono p-arch">x86_64 · 13+</td><td class="mono p-file">taixu-0.3.0-beta.1-x86_64-macos.tar.gz</td><td class="mono p-size"><span class="p-mb">9.8 MB</span><small>10230299 字节</small></td><td class="mono p-sha">4951bc1f24065b87acd380a00b371867ab43fee3b9f25ea0c6717d97629bb72a</td><td style="text-align:right"><a class="btn btn-sm" href="https://github.com/yockii/taixu-lang/releases/download/v0.3.0-beta.1/taixu-0.3.0-beta.1-x86_64-macos.tar.gz">下载</a></td></tr>
+          <tr data-platform="macos-arm64" data-exe="taixu"><td class="p-name"><b>macOS（Apple 芯片）</b></td><td class="mono p-arch">arm64 · 13+</td><td class="mono p-file">taixu-0.3.0-beta.1-aarch64-macos.tar.gz</td><td class="mono p-size"><span class="p-mb">7.8 MB</span><small>8172970 字节</small></td><td class="mono p-sha">85c23bf54c3dc34a9c566096ceea2242d15bfefc02b587327f7b501cbadc4105</td><td style="text-align:right"><a class="btn btn-sm" href="https://github.com/yockii/taixu-lang/releases/download/v0.3.0-beta.1/taixu-0.3.0-beta.1-aarch64-macos.tar.gz">下载</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="actions" data-reveal>
+      <a class="btn" href="https://github.com/yockii/taixu-lang/releases/download/v0.3.0-beta.1/SHA256SUMS">SHA256SUMS</a>
+      <a class="btn" href="https://github.com/yockii/taixu-lang/releases/tag/v0.3.0-beta.1">本版发布页 ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="verify">
+  <div class="wrap split top">
+    <div class="head" data-reveal>
+      <p class="kicker">02 / 校验</p>
+      <h2 class="h-section">核对下载是否完整。</h2>
+      <p class="lead">算出压缩包的 SHA-256，与上表或 <code class="inline-code">SHA256SUMS</code> 文件里的值逐字比对，一致即完整。</p>
+    </div>
+    <div class="window wide">
+      <div class="window-bar"><span>terminal</span><small>按你的系统选一条</small></div>
+<pre><code data-lang="bash"># Windows（PowerShell）
+$ Get-FileHash taixu-0.3.0-beta.1-x86_64-windows.zip -Algorithm SHA256
+# Linux
+$ sha256sum taixu-0.3.0-beta.1-x86_64-linux.tar.gz
+# macOS
+$ shasum -a 256 taixu-0.3.0-beta.1-aarch64-macos.tar.gz</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split top">
+    <div class="stack gap-28">
+      <div class="head" data-reveal>
+        <p class="kicker">03 / 下载之后</p>
+        <h2 class="h-section">三步验证安装。</h2>
+      </div>
+      <ol class="timeline">
+        <li><span class="dot">1</span><span class="tx"><b>解压</b><span>放到任意目录，再把该目录加入 PATH。标准库与可执行文件同目录，自动发现，零配置。</span></span></li>
+        <li><span class="dot">2</span><span class="tx"><b>自检</b><span><code class="inline-code">taixu --version</code> 输出形如 <code class="inline-code">taixu 0.3.0-beta.1 native bootstrap compiler (x86_64-windows)</code>，括号里是本机目标。</span></span></li>
+        <li><span class="dot">3</span><span class="tx"><b>跑起第一个程序</b><span>跟着<a href="../learn/#quickstart">快速开始</a>，五分钟内完成。</span></span></li>
+      </ol>
+    </div>
+    <div class="window wide">
+      <div class="window-bar"><span>包内结构</span><small>解压后</small></div>
+<pre class="mono">taixu(.exe)       <span class="tok-c"># 编译器与全部工具：run、build、test、fmt、doc、lsp、dap、mcp……</span>
+stdlib/           <span class="tok-c"># 标准库，与可执行文件同目录，自动发现</span>
+examples/         <span class="tok-c"># 样例</span>
+docs/             <span class="tok-c"># 教程、语言规范与 AI 指南</span>
+skill/            <span class="tok-c"># 给 AI 代理的 skill 包</span>
+README.md         <span class="tok-c"># 快速上手与已知限制</span>
+LICENSE-APACHE    <span class="tok-c"># 许可证：Apache-2.0 或 MIT，任选其一</span>
+LICENSE-MIT</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="first-run">
+  <div class="wrap stack gap-40">
+    <div class="head" data-reveal>
+      <p class="kicker">04 / 首次运行</p>
+      <h2 class="h-section">首次运行被系统拦下？</h2>
+      <p class="lead">这一版的 macOS 可执行文件未经公证，Windows 可执行文件未签名，第一次运行时系统可能会拦一下。</p>
+    </div>
+    <div class="grid cols-auto-320" data-reveal data-stagger>
+      <div class="card"><span class="tag">macOS</span><h3>只有 ad-hoc 签名，未公证</h3><p>经浏览器下载的包首次运行会被拦下。在解压目录执行下面的命令后再运行即可；用 <code class="inline-code">curl</code> 下载的不受影响。</p><code class="cmd-chip">xattr -dr com.apple.quarantine .</code></div>
+      <div class="card"><span class="tag">Windows</span><h3>未签名</h3><p>SmartScreen 可能提示“未知发布者”，选择“仍要运行”即可。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="editor">
+  <div class="wrap split">
+    <div class="head" data-reveal>
+      <p class="kicker">05 / 编辑器</p>
+      <h2 class="h-section">VS Code 扩展</h2>
+      <p class="lead">扩展是 <code class="inline-code">taixu lsp</code> 与 <code class="inline-code">taixu dap</code> 的客户端，和命令行共用同一套引擎：编辑器里报的错与命令行报的错是同一个错误。</p>
+      <a class="text-link" href="https://github.com/yockii/taixu-vscode">taixu-vscode 仓库与安装说明 ↗</a>
+    </div>
+    <div class="grid cols-auto-220 wide">
+      <div class="card"><span class="tag">LSP</span><h3>写</h3><p>诊断、格式化、文档符号、悬停、签名提示、补全、定义、引用、重命名与语义着色。</p></div>
+      <div class="card"><span class="tag">DAP</span><h3>调</h3><p>断点（含函数断点）、单步、步入、步出、调用栈与按名字看变量；暂不支持条件断点。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="limits">
+  <div class="wrap split top">
+    <div class="head" data-reveal>
+      <p class="kicker">06 / 已知限制</p>
+      <h2 class="h-section">这一版还做不到的事。</h2>
+      <p class="lead">公测期间这些限制会逐步解除；遇到清单之外的问题，欢迎到 <a href="https://github.com/yockii/taixu-lang/issues">Issues ↗</a> 反馈。</p>
+    </div>
+    <ol class="steps wide" data-reveal data-stagger>
+      <li><span class="n">01</span><span><b>beta 不承诺可靠性与兼容性</b><span class="d">语言与工具链仍会变化，可能遇到错误、崩溃或错误的结果。</span></span></li>
+      <li><span class="n">02</span><span><b>暂不提供 GUI</b><span class="d">GUI 外部库正在补齐，暂未随包提供；这一版专注于命令行程序与库。</span></span></li>
+      <li><span class="n">03</span><span><b>还不能编出给 C 调用的库</b><span class="d"><code class="inline-code">build --lib</code> 只检查库模块能否编成原生代码，产物不是库。</span></span></li>
+      <li><span class="n">04</span><span><b>Windows 产物没有 PDB</b><span class="d">Linux、macOS 产物带函数符号；Windows 的调试符号尚未提供。</span></span></li>
+      <li><span class="n">05</span><span><b>disasm 只支持 x86_64</b><span class="d"><code class="inline-code">taixu disasm</code> 暂不能显示 arm64 汇编。</span></span></li>
+      <li><span class="n">06</span><span><b>性能尚未优化</b><span class="d">生成代码尚未系统调优，当前水平见<a href="../performance/">性能实测</a>。</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid cols-auto-320">
+    <a class="card" href="https://github.com/yockii/taixu-lang/releases" style="padding:32px"><span class="tag muted">Releases</span><h3>版本发布</h3><p>每个版本的变化、已知问题与全部下载文件。</p><span class="foot">GitHub Releases ↗</span></a>
+    <a class="card" href="https://github.com/yockii/taixu-lang" style="padding:32px"><span class="tag muted">Source</span><h3>从源码构建</h3><p>用一个已发布的 <code class="inline-code">taixu</code> 作为种子重新构建编译器，步骤见仓库 README 的“从源码构建与验证”。日常使用，上面的包已经自包含。</p><span class="foot">查看源码 ↗</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <a class="brand" href="../" aria-label="太虚首页"><svg class="brand-mark" aria-hidden="true"><use href="#tx-mark"></use></svg><span class="brand-name">太虚</span></a>
+        <p>面向人与 AI 协作的编程语言。</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="f-learn"><h2 id="f-learn">学习</h2><a href="../learn/#quickstart">快速开始</a><a href="../learn/#tutorial">入门教程</a><a href="../docs/">语言手册</a><a href="../docs/#stdlib">标准库</a></nav>
+      <nav class="footer-col" aria-labelledby="f-tools"><h2 id="f-tools">工具</h2><a href="../download/">下载</a><a href="../download/#editor">VS Code 扩展</a><a href="../ai/#channels">MCP 接入</a><a href="../docs/#reference">诊断码</a></nav>
+      <nav class="footer-col" aria-labelledby="f-proj"><h2 id="f-proj">项目</h2><a href="https://github.com/yockii/taixu-lang">GitHub ↗</a><a href="https://github.com/yockii/taixu-lang/issues">问题反馈 ↗</a><a href="../performance/">性能实测</a><a href="https://github.com/yockii/taixu-lang/releases">版本发布 ↗</a></nav>
+    </div>
+    <div class="footer-base"><span>© 2026 Project Taixu · Apache-2.0 OR MIT</span><span>taixu.icu · 0.3.0-beta.1</span></div>
+  </div>
+</footer>
+</body>
+</html>
