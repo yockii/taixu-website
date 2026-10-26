@@ -63,8 +63,8 @@
     <div class="ruled cols-auto-200" style="border-radius:var(--radius);background:#1c2430" data-reveal data-stagger>
       <div class="stat spot"><b><span data-count="9">9</span></b><span>算法负载</span></div>
       <div class="stat spot"><b><span data-count="3">3</span></b><span>对照语言：C · Go · Rust</span></div>
-      <div class="stat spot"><b>{{RUNS}}</b><span>每项样本数，取中位</span></div>
-      <div class="stat spot"><b class="accent">{{GEO_c}}<small>×</small></b><span>对 C 的几何平均（越低越快）</span></div>
+      <div class="stat spot"><b>11</b><span>每项样本数，取中位</span></div>
+      <div class="stat spot"><b class="accent">4.84<small>×</small></b><span>对 C 的几何平均（越低越快）</span></div>
     </div>
   </div>
 </section>
@@ -80,19 +80,20 @@
       <table>
         <thead><tr><th scope="col">负载</th><th scope="col">内容</th><th scope="col">太虚 / C</th><th scope="col">太虚 / Go</th><th scope="col">太虚 / Rust</th></tr></thead>
         <tbody>
-          <tr><td class="mono"><b>fib-rec</b></td><td style="color:var(--muted)">递归斐波那契 fib(27)</td><td class="mono">{{R_fib-rec_c}}×</td><td class="mono">{{R_fib-rec_go}}×</td><td class="mono">{{R_fib-rec_rust}}×</td></tr>
-          <tr><td class="mono"><b>fib-iter</b></td><td style="color:var(--muted)">迭代斐波那契 fib(87)</td><td class="mono">{{R_fib-iter_c}}×</td><td class="mono">{{R_fib-iter_go}}×</td><td class="mono">{{R_fib-iter_rust}}×</td></tr>
-          <tr><td class="mono"><b>qsort</b></td><td style="color:var(--muted)">快速排序 50,000 个整数</td><td class="mono">{{R_qsort_c}}×</td><td class="mono">{{R_qsort_go}}×</td><td class="mono">{{R_qsort_rust}}×</td></tr>
-          <tr><td class="mono"><b>sieve</b></td><td style="color:var(--muted)">埃氏筛，50 万以内素数计数</td><td class="mono">{{R_sieve_c}}×</td><td class="mono">{{R_sieve_go}}×</td><td class="mono">{{R_sieve_rust}}×</td></tr>
-          <tr><td class="mono"><b>mandelbrot</b></td><td style="color:var(--muted)">Mandelbrot 集 300×300，迭代上限 255</td><td class="mono">{{R_mandelbrot_c}}×</td><td class="mono">{{R_mandelbrot_go}}×</td><td class="mono">{{R_mandelbrot_rust}}×</td></tr>
-          <tr><td class="mono"><b>matmul</b></td><td style="color:var(--muted)">浮点矩阵乘 192×192</td><td class="mono">{{R_matmul_c}}×</td><td class="mono">{{R_matmul_go}}×</td><td class="mono">{{R_matmul_rust}}×</td></tr>
-          <tr><td class="mono"><b>nbody</b></td><td style="color:var(--muted)">N 体引力模拟，5 体 × 200,000 步</td><td class="mono">{{R_nbody_c}}×</td><td class="mono">{{R_nbody_go}}×</td><td class="mono">{{R_nbody_rust}}×</td></tr>
-          <tr><td class="mono"><b>string-build-find</b></td><td style="color:var(--muted)">字符串拼接 5,000 段与朴素匹配扫描</td><td class="mono">{{R_string-build-find_c}}×</td><td class="mono">{{R_string-build-find_go}}×</td><td class="mono">{{R_string-build-find_rust}}×</td></tr>
-          <tr><td class="mono"><b>json-roundtrip</b></td><td style="color:var(--muted)">JSON 构树、序列化、解析往复</td><td class="mono">{{R_json-roundtrip_c}}×</td><td class="mono">{{R_json-roundtrip_go}}×</td><td class="mono">{{R_json-roundtrip_rust}}×</td></tr>
-          <tr><td><b>几何平均</b></td><td style="color:var(--muted)">九项</td><td class="mono"><b>{{GEO_c}}×</b></td><td class="mono"><b>{{GEO_go}}×</b></td><td class="mono"><b>{{GEO_rust}}×</b></td></tr>
+          <tr><td class="mono"><b>fib-rec</b></td><td style="color:var(--muted)">递归斐波那契 fib(27)</td><td class="mono">2.09×</td><td class="mono">1.13×</td><td class="mono">1.58×</td></tr>
+          <tr><td class="mono"><b>fib-iter</b></td><td style="color:var(--muted)">迭代斐波那契 fib(87)</td><td class="mono">0.92×</td><td class="mono">0.47×</td><td class="mono">0.71×</td></tr>
+          <tr><td class="mono"><b>qsort</b></td><td style="color:var(--muted)">快速排序 50,000 个整数</td><td class="mono">4.45×</td><td class="mono">3.06×</td><td class="mono">3.75×</td></tr>
+          <tr><td class="mono"><b>sieve</b></td><td style="color:var(--muted)">埃氏筛，50 万以内素数计数</td><td class="mono">4.87×</td><td class="mono">2.84×</td><td class="mono">3.91×</td></tr>
+          <tr><td class="mono"><b>mandelbrot</b></td><td style="color:var(--muted)">Mandelbrot 集 300×300，迭代上限 255</td><td class="mono">3.58×</td><td class="mono">3.03×</td><td class="mono">3.29×</td></tr>
+          <tr><td class="mono"><b>matmul</b></td><td style="color:var(--muted)">浮点矩阵乘 192×192</td><td class="mono">72.5×</td><td class="mono">41.6×</td><td class="mono">74.2×</td></tr>
+          <tr><td class="mono"><b>nbody</b></td><td style="color:var(--muted)">N 体引力模拟，5 体 × 200,000 步</td><td class="mono">21.4×</td><td class="mono">18.7×</td><td class="mono">21.3×</td></tr>
+          <tr><td class="mono"><b>string-build-find</b></td><td style="color:var(--muted)">字符串拼接 5,000 段与朴素匹配扫描</td><td class="mono">1.55×</td><td class="mono">0.86×</td><td class="mono">1.26×</td></tr>
+          <tr><td class="mono"><b>json-roundtrip</b></td><td style="color:var(--muted)">JSON 构树、序列化、解析往复</td><td class="mono">4.00×</td><td class="mono">2.27×</td><td class="mono">3.26×</td></tr>
+          <tr><td><b>几何平均</b></td><td style="color:var(--muted)">九项</td><td class="mono"><b>4.84×</b></td><td class="mono"><b>3.03×</b></td><td class="mono"><b>4.13×</b></td></tr>
         </tbody>
       </table>
     </div>
+    <p class="lead" data-reveal style="color:var(--muted)">前几项负载在 C 里只跑约 5 毫秒，比值以进程启动为主；matmul 与 nbody（浮点与数组访问密集）是当前最大的落后项，列为后续优化的首要目标。</p>
   </div>
 </section>
 
@@ -106,8 +107,8 @@
     <ol class="steps wide" data-reveal data-stagger>
       <li><span class="n">01</span><span><b>同一台机器</b><span class="d">太虚与三种对照语言都在同一台 Windows x64 机器上运行。</span></span></li>
       <li><span class="n">02</span><span><b>指标</b><span class="d">以子进程 CPU 周期为准，同时记录墙钟时间。</span></span></li>
-      <li><span class="n">03</span><span><b>采样</b><span class="d">每项先预热 1 次，再采 {{RUNS}} 个样本，取中位数。</span></span></li>
-      <li><span class="n">04</span><span><b>对照编译</b><span class="d">C 用 <code class="inline-code">gcc -O2</code>（{{GCC_VER}}），Go 用 <code class="inline-code">go build</code>（{{GO_VER}}），Rust 用 <code class="inline-code">rustc -O</code>（{{RUST_VER}}）。</span></span></li>
+      <li><span class="n">03</span><span><b>采样</b><span class="d">每项先预热 1 次，再采 11 个样本，取中位数。</span></span></li>
+      <li><span class="n">04</span><span><b>对照编译</b><span class="d">C 用 <code class="inline-code">gcc -O2</code>（GCC 15.2.0，MinGW-w64），Go 用 <code class="inline-code">go build</code>（Go 1.26.6），Rust 用 <code class="inline-code">rustc -O</code>（Rust 1.93.0）。</span></span></li>
       <li><span class="n">05</span><span><b>结果一致才计入</b><span class="d">九项负载与对照实现必须输出逐字节相同的校验和，否则不计入。</span></span></li>
       <li><span class="n">06</span><span><b>差距一并公开</b><span class="d">落后的负载与领先的负载放在一起，随版本更新。</span></span></li>
     </ol>
