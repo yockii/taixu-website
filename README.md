@@ -30,6 +30,7 @@ cd dist && python -m http.server 8907
 | `dist/download/` | 下载：按访问者系统推荐、四平台安装包与 SHA-256、首次运行、VS Code 扩展、已知限制 |
 | `dist/performance/` | 性能：与 C、Go、Rust 的对比（醒目标注“性能尚未优化”）、测量方法与复现 |
 | `dist/ai/` | AI 协作：CLI、MCP、LSP、DAP 四个入口，Taixu Skill，验证闭环 |
+| `dist/autoinstall/`、`dist/autoinstall.md` | 给 AI 编程代理的安装说明（首页首屏的提示词指向这里）：判定平台、下载并校验、装到用户目录、加入 PATH、自检、登记 MCP、安装 Taixu Skill。HTML 由 `.md` 经 `python tools/build_autoinstall.py dist` 生成，改 `.md` 后重新生成 |
 
 ## 目录结构
 
