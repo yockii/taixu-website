@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#05070b">
-<meta name="description" content="太虚手册 · 失败通道：T | Error 与 T?，用 ? 传播、用 catch 处理，跨通道必须显式桥接。对应 0.3.0-beta.1。">
+<meta name="description" content="太虚手册 · 失败通道：T | Error 与 T?，用 ? 传播、用 catch 处理，跨通道必须显式桥接。对应 0.3.0-beta.2。">
 <title>失败通道 · 太虚手册</title>
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/site.css">
@@ -21,7 +21,7 @@
     <a class="brand" href="../../" aria-label="太虚首页">
       <svg class="brand-mark" aria-hidden="true"><use href="#tx-mark"></use></svg>
       <span class="brand-name">太虚</span>
-      <span class="brand-ver">0.3.0-beta.1</span>
+      <span class="brand-ver">0.3.0-beta.2</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -52,7 +52,7 @@
     <nav class="crumbs" aria-label="当前位置"><a href="../../docs/">手册</a><span aria-hidden="true">/</span><a href="../../docs/#guide">语言指南</a><span aria-hidden="true">/</span><span aria-current="page">失败通道</span></nav>
     <div class="meta">
       <label class="ver-select">版本
-        <select aria-label="文档版本"><option>0.3.0-beta.1（最新）</option></select>
+        <select aria-label="文档版本"><option>0.3.0-beta.2（最新）</option></select>
       </label>
     </div>
   </div>
@@ -92,7 +92,7 @@
       <div class="side-group"><h2>参考</h2><ul>
         <li><a href="../../docs/#reference"><span class="no">·</span>参考总览</a></li>
         <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/quickref.md"><span class="no">·</span>速查手册 ↗</a></li>
-        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/design/D3-s1-language-spec-v0.42.md"><span class="no">·</span>语言规范 ↗</a></li>
+        <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/design/D3-s1-language-spec-v0.54.md"><span class="no">·</span>语言规范 ↗</a></li>
         <li><a href="https://github.com/yockii/taixu-lang/blob/main/docs/ai/llm-guide-s1.md"><span class="no">·</span>AI 生成指南 ↗</a></li>
       </ul></div>
     </nav>
@@ -137,7 +137,7 @@
 <pre><code data-lang="tx">// ① 给默认值：失败时取右侧的值
 const name = readFile("name.txt") catch "访客";
 
-// ② 绑定错误：在块里读 e.message；块里要 return 或 panic
+// ② 绑定错误：在块里读 e.message；成功侧不是 void 时，块须 return 或 panic（循环里也可 continue、break）
 const conf = readFile("app.conf") catch (e) {
     print("读取配置失败：" + e.message);
     return 1;
@@ -153,11 +153,11 @@ const cache: string? = readFile("cache.txt") catch None;</code></pre>
       </ul>
 
       <h2 id="optional">可选通道 T?<a class="anchor" href="#optional" aria-label="本节链接">#</a></h2>
-      <p>有些“没有”不是错误，比如按下标读列表时越界、查表时没有这个键。这类操作返回 <code>T?</code>，缺席时得到 <code>None</code>。</p>
+      <p>有些“没有”不是错误，比如用 <code>tryGet</code> 按下标试读列表、查表时没有这个键。这类操作返回 <code>T?</code>，缺席时得到 <code>None</code>。（<code>get</code> 按下标读时越界即终止程序，它不是可选通道。）</p>
       <div class="code">
         <div class="code-bar"><span>tx</span><button class="copy-btn" type="button">复制</button></div>
 <pre><code data-lang="tx">const xs: List&lt;int&gt; = listNew();
-const first = xs.get(0) catch -1; // 空列表：get 得到 None，兜底为 -1</code></pre>
+const first = xs.tryGet(0) catch -1; // 空列表：tryGet 得到 None，兜底为 -1</code></pre>
       </div>
       <p>在返回 <code>T?</code> 的函数里，同样可以用 <code>?</code> 把缺席继续向上传播。</p>
 
@@ -166,7 +166,7 @@ const first = xs.get(0) catch -1; // 空列表：get 得到 None，兜底为 -1<
       <div class="code">
         <div class="code-bar"><span>tx</span><button class="copy-btn" type="button">复制</button></div>
 <pre><code data-lang="tx">// T? → T | Error：缺席时给出一个有原因的错误
-const head = xs.get(0) catch err("列表为空");
+const head = xs.tryGet(0) catch err("列表为空");
 
 // T | Error → T?：丢弃原因，只保留有没有
 const text: string? = readFile("a.txt") catch None;</code></pre>
@@ -175,7 +175,7 @@ const text: string? = readFile("a.txt") catch None;</code></pre>
       <div class="code">
         <div class="code-bar"><span>tx</span><button class="copy-btn" type="button">复制</button></div>
 <pre><code data-lang="tx">function firstPlusOne(xs: List&lt;int&gt;): int | Error {
-    const v = xs.get(0)?;
+    const v = xs.tryGet(0)?;
     return v + 1;
 }</code></pre>
       </div>
@@ -186,7 +186,7 @@ const text: string? = readFile("a.txt") catch None;</code></pre>
       </div>
       <div class="callout" role="note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
-        <div><strong style="color:var(--amber)">诊断码 3006</strong><br>编译器不替你猜：选一种桥接方式写出来即可，例如 <code>xs.get(0) catch err("列表为空")</code> 之后再 <code>?</code>。运行 <code>taixu explain 3006</code> 查看说明与修复建议。</div>
+        <div><strong style="color:var(--amber)">诊断码 3006</strong><br>编译器不替你猜：选一种桥接方式写出来即可，例如 <code>xs.tryGet(0) catch err("列表为空")</code> 之后再 <code>?</code>。运行 <code>taixu explain 3006</code> 查看说明与修复建议。</div>
       </div>
 
       <h2 id="summary">小结<a class="anchor" href="#summary" aria-label="本节链接">#</a></h2>
@@ -205,7 +205,7 @@ const text: string? = readFile("a.txt") catch None;</code></pre>
     </nav>
     <div class="doc-foot">
       <a href="https://github.com/yockii/taixu-lang/issues">发现问题？到 Issues 反馈 ↗</a>
-      <span>适用于 0.3.0-beta.1</span>
+      <span>适用于 0.3.0-beta.2</span>
     </div>
   </main>
 
@@ -228,7 +228,7 @@ const text: string? = readFile("a.txt") catch None;</code></pre>
 
 <footer class="site-footer">
   <div class="wrap" style="padding-top:32px;padding-bottom:32px">
-    <div class="footer-base" style="border-top:0;padding-top:0"><span>© 2026 Project Taixu · Apache-2.0 OR MIT</span><span>手册随语言版本更新 · 0.3.0-beta.1</span></div>
+    <div class="footer-base" style="border-top:0;padding-top:0"><span>© 2026 Project Taixu · Apache-2.0 OR MIT</span><span>手册随语言版本更新 · 0.3.0-beta.2</span></div>
   </div>
 </footer>
 </body>

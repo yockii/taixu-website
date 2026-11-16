@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#05070b">
-<meta name="description" content="太虚 0.3.0-beta.1 公开性能实测：九项算法负载与 C、Go、Rust 同机对比。性能尚未优化，数字包括落后项。">
+<meta name="description" content="太虚公开性能实测，每一版保留：九项算法负载与 C、Go、Rust 同机对比（当前为 0.3.0-beta.1），以及各版 hello 产物体积。性能尚未优化，数字包括落后项。">
 <title>性能 · 太虚</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css">
@@ -20,7 +20,7 @@
     <a class="brand" href="../" aria-label="太虚首页">
       <svg class="brand-mark" aria-hidden="true"><use href="#tx-mark"></use></svg>
       <span class="brand-name">太虚</span>
-      <span class="brand-ver">0.3.0-beta.1</span>
+      <span class="brand-ver">0.3.0-beta.2</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -52,13 +52,13 @@
   <canvas class="constellation" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="head" style="max-width:860px;gap:20px">
-      <p class="kicker">Performance · 0.3.0-beta.1</p>
+      <p class="kicker">Performance · 每一版保留</p>
       <h1><span data-scramble="1000">性能尚未优化，</span><br><em>数字照样公开。</em></h1>
       <p class="lead">与 C、Go、Rust 在同一台机器上对比九项算法负载。数字公开当前真实水平，包括落后项——不用笼统的“高性能”代替测量。</p>
     </div>
     <div class="callout-box" role="note" style="margin-top:0;max-width:860px">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
-      <p><b style="color:var(--amber)">性能尚未优化。</b>0.3.0-beta.1 优先保证正确与安全，生成代码尚未系统调优。下表反映这一版的真实水平，会随后续版本变化；不要据此推断最终性能。</p>
+      <p><b style="color:var(--amber)">性能尚未优化。</b>本页保留每一版的实测，便于看到版本之间的变化。下面的运算效率是 0.3.0-beta.1 的数据；0.3.0-beta.2 的数据将由公开仓的 GitHub Actions 在同一次作业里与 C 对照测得后补入。生成代码尚未系统调优，不要据此推断最终性能。</p>
     </div>
     <div class="ruled cols-auto-200" style="border-radius:var(--radius);background:#1c2430" data-reveal data-stagger>
       <div class="stat spot"><b><span data-count="9">9</span></b><span>算法负载</span></div>
@@ -72,7 +72,7 @@
 <section class="section first" id="results">
   <div class="wrap stack gap-40">
     <div class="head" data-reveal>
-      <p class="kicker">01 / 运算效率</p>
+      <p class="kicker">01 / 运算效率 · 0.3.0-beta.1</p>
       <h2 class="h-section" data-scramble="900">九项算法负载。</h2>
       <p class="lead">比值＝太虚耗时 ÷ 对照耗时（子进程 CPU 周期的中位数），越低越快，1× 为持平；大于 1 即太虚更慢。</p>
     </div>
@@ -97,12 +97,31 @@
   </div>
 </section>
 
-<section class="section alt" id="method">
+<section class="section alt" id="size">
+  <div class="wrap stack gap-40">
+    <div class="head" data-reveal>
+      <p class="kicker">02 / 产物体积</p>
+      <h2 class="h-section" data-scramble="900">hello 的原生可执行文件。</h2>
+      <p class="lead">打印一行的 hello 程序，<code class="inline-code">taixu build</code> 的产物大小（字节）。0.3.0-beta.2 起运行时按需链入，只带程序用到的部分。体积是确定值，与机器无关。</p>
+    </div>
+    <div class="table-box" data-reveal>
+      <table>
+        <thead><tr><th scope="col">版本</th><th scope="col">x86_64-windows</th><th scope="col">x86_64-linux</th><th scope="col">aarch64-macos</th></tr></thead>
+        <tbody>
+          <tr><td><b>0.3.0-beta.2</b></td><td class="mono"><b>53,248</b></td><td class="mono"><b>59,720</b></td><td class="mono"><b>89,584</b></td></tr>
+          <tr><td>0.3.0-beta.1</td><td class="mono">168,448</td><td class="mono">194,608</td><td class="mono">239,696</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="method">
   <div class="wrap split top">
     <div class="head" data-reveal>
-      <p class="kicker">02 / 方法</p>
+      <p class="kicker">03 / 方法</p>
       <h2 class="h-section" data-scramble="900">怎么测的。</h2>
-      <p class="lead">数字只有在方法公开时才有意义。下面是这组数据的采集条件；负载源码在公开仓 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo"><code class="inline-code">bench/algo/</code> ↗</a>，对照实现在 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo/cmp"><code class="inline-code">bench/algo/cmp/</code> ↗</a>。</p>
+      <p class="lead">数字只有在方法公开时才有意义。下面是这组数据的采集条件；负载源码与对照实现见公开仓 0.3.0-beta.1 标签下的 <a href="https://github.com/yockii/taixu-lang/tree/v0.3.0-beta.1/bench/algo"><code class="inline-code">bench/algo/</code> ↗</a> 与 <a href="https://github.com/yockii/taixu-lang/tree/v0.3.0-beta.1/bench/algo/cmp"><code class="inline-code">bench/algo/cmp/</code> ↗</a>。</p>
     </div>
     <ol class="steps wide" data-reveal data-stagger>
       <li><span class="n">01</span><span><b>同一台机器</b><span class="d">太虚与三种对照语言都在同一台 Windows x64 机器上运行。</span></span></li>
@@ -115,16 +134,16 @@
   </div>
 </section>
 
-<section class="section" id="reproduce">
+<section class="section alt" id="reproduce">
   <div class="wrap split">
     <div class="head" data-reveal>
-      <p class="kicker">03 / 复现</p>
+      <p class="kicker">04 / 复现</p>
       <h2 class="h-section" data-scramble="900">自己跑一遍。</h2>
-      <p class="lead">在公开仓的克隆里用同一个脚本采集，<code class="inline-code">&lt;taixu&gt;</code> 换成你下载的编译器路径；结果以你的机器为准。</p>
+      <p class="lead">在公开仓的 0.3.0-beta.1 标签下用同一个脚本采集，<code class="inline-code">&lt;taixu&gt;</code> 换成 0.3.0-beta.1 编译器的路径；结果以你的机器为准。</p>
     </div>
     <div class="window wide">
       <div class="window-bar"><span>terminal</span><button class="copy-btn" type="button" style="min-height:32px" aria-label="复制命令">复制</button></div>
-<pre><code data-lang="bash">$ git clone https://github.com/yockii/taixu-lang
+<pre><code data-lang="bash">$ git clone --branch v0.3.0-beta.1 https://github.com/yockii/taixu-lang
 $ cd taixu-lang
 $ python scripts/perf-baseline.py --compiler &lt;taixu&gt; --suite runtime</code></pre>
     </div>
@@ -137,7 +156,7 @@ $ python scripts/perf-baseline.py --compiler &lt;taixu&gt; --suite runtime</code
     <h2 data-scramble="1000">正确优先，调优在后。</h2>
     <p>性能问题与对比数据同样欢迎反馈；附上负载与机器信息，最容易复现。</p>
     <div class="actions">
-      <a class="btn btn-primary energy" href="../download/">下载 0.3.0-beta.1</a>
+      <a class="btn btn-primary energy" href="../download/">下载 0.3.0-beta.2</a>
       <a class="btn" href="https://github.com/yockii/taixu-lang/issues">问题反馈 ↗</a>
     </div>
   </div>
