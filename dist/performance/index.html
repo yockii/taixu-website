@@ -64,7 +64,7 @@
       <div class="stat spot"><b><span data-count="9">9</span></b><span>算法负载</span></div>
       <div class="stat spot"><b><span data-count="3">3</span></b><span>对照语言：C · Go · Rust</span></div>
       <div class="stat spot"><b>11</b><span>每项样本数，取中位</span></div>
-      <div class="stat spot"><b class="accent">4.15<small>×</small></b><span>0.3.0-beta.2 对 C 的几何平均（越低越快）</span></div>
+      <div class="stat spot"><b class="accent">4.39<small>×</small></b><span>0.3.0-beta.2 对 C 的几何平均（越低越快）</span></div>
     </div>
   </div>
 </section>
@@ -80,41 +80,41 @@
       <table>
         <thead><tr><th scope="col">负载</th><th scope="col">内容</th><th scope="col">太虚 / C</th><th scope="col">太虚 / Go</th><th scope="col">太虚 / Rust</th></tr></thead>
         <tbody>
-          <tr><td class="mono"><b>fib-rec</b></td><td style="color:var(--muted)">递归斐波那契 fib(27)</td><td class="mono">1.64×</td><td class="mono">0.98×</td><td class="mono">1.35×</td></tr>
-          <tr><td class="mono"><b>fib-iter</b></td><td style="color:var(--muted)">迭代斐波那契 fib(87)</td><td class="mono">0.82×</td><td class="mono">0.51×</td><td class="mono">0.68×</td></tr>
-          <tr><td class="mono"><b>qsort</b></td><td style="color:var(--muted)">快速排序 50,000 个整数</td><td class="mono">3.56×</td><td class="mono">2.60×</td><td class="mono">3.18×</td></tr>
-          <tr><td class="mono"><b>sieve</b></td><td style="color:var(--muted)">埃氏筛，50 万以内素数计数</td><td class="mono">3.84×</td><td class="mono">2.58×</td><td class="mono">3.41×</td></tr>
-          <tr><td class="mono"><b>mandelbrot</b></td><td style="color:var(--muted)">Mandelbrot 集 300×300，迭代上限 255</td><td class="mono">5.32×</td><td class="mono">4.42×</td><td class="mono">5.00×</td></tr>
-          <tr><td class="mono"><b>matmul</b></td><td style="color:var(--muted)">浮点矩阵乘 192×192</td><td class="mono">54.7×</td><td class="mono">32.2×</td><td class="mono">61.0×</td></tr>
-          <tr><td class="mono"><b>nbody</b></td><td style="color:var(--muted)">N 体引力模拟，5 体 × 200,000 步</td><td class="mono">17.3×</td><td class="mono">16.2×</td><td class="mono">17.5×</td></tr>
-          <tr><td class="mono"><b>string-build-find</b></td><td style="color:var(--muted)">字符串拼接 5,000 段与朴素匹配扫描</td><td class="mono">1.29×</td><td class="mono">0.83×</td><td class="mono">1.10×</td></tr>
-          <tr><td class="mono"><b>json-roundtrip</b></td><td style="color:var(--muted)">JSON 构树、序列化、解析往复</td><td class="mono">3.11×</td><td class="mono">1.89×</td><td class="mono">2.67×</td></tr>
-          <tr><td><b>几何平均</b></td><td style="color:var(--muted)">九项</td><td class="mono"><b>4.15×</b></td><td class="mono"><b>2.84×</b></td><td class="mono"><b>3.78×</b></td></tr>
+          <tr><td class="mono"><b>fib-rec</b></td><td style="color:var(--muted)">递归斐波那契 fib(27)</td><td class="mono">1.95×</td><td class="mono">1.16×</td><td class="mono">1.65×</td></tr>
+          <tr><td class="mono"><b>fib-iter</b></td><td style="color:var(--muted)">迭代斐波那契 fib(87)</td><td class="mono">0.80×</td><td class="mono">0.52×</td><td class="mono">0.72×</td></tr>
+          <tr><td class="mono"><b>qsort</b></td><td style="color:var(--muted)">快速排序 50,000 个整数</td><td class="mono">4.84×</td><td class="mono">3.52×</td><td class="mono">4.43×</td></tr>
+          <tr><td class="mono"><b>sieve</b></td><td style="color:var(--muted)">埃氏筛，50 万以内素数计数</td><td class="mono">4.81×</td><td class="mono">3.25×</td><td class="mono">4.38×</td></tr>
+          <tr><td class="mono"><b>mandelbrot</b></td><td style="color:var(--muted)">Mandelbrot 集 300×300，迭代上限 255</td><td class="mono">2.57×</td><td class="mono">2.31×</td><td class="mono">2.56×</td></tr>
+          <tr><td class="mono"><b>matmul</b></td><td style="color:var(--muted)">浮点矩阵乘 192×192</td><td class="mono">79.8×</td><td class="mono">48.9×</td><td class="mono">90.4×</td></tr>
+          <tr><td class="mono"><b>nbody</b></td><td style="color:var(--muted)">N 体引力模拟，5 体 × 200,000 步</td><td class="mono">16.9×</td><td class="mono">16.1×</td><td class="mono">18.2×</td></tr>
+          <tr><td class="mono"><b>string-build-find</b></td><td style="color:var(--muted)">字符串拼接 5,000 段与朴素匹配扫描</td><td class="mono">1.31×</td><td class="mono">0.89×</td><td class="mono">1.21×</td></tr>
+          <tr><td class="mono"><b>json-roundtrip</b></td><td style="color:var(--muted)">JSON 构树、序列化、解析往复</td><td class="mono">3.66×</td><td class="mono">2.21×</td><td class="mono">3.16×</td></tr>
+          <tr><td><b>几何平均</b></td><td style="color:var(--muted)">九项</td><td class="mono"><b>4.39×</b></td><td class="mono"><b>3.07×</b></td><td class="mono"><b>4.16×</b></td></tr>
         </tbody>
       </table>
     </div>
     <div class="head" data-reveal>
       <h3 style="font-size:20px">各版对 C</h3>
-      <p class="lead" style="color:var(--muted)">同一次运行里各版一起重测，每次更新都整段重测，所以数字会随运行有小幅变动。</p>
+      <p class="lead" style="color:var(--muted)">同一次运行里各版一起重测。托管机器的型号每次运行可能不同，数字会随之变动，版本之间请在这张表里比较。</p>
     </div>
     <div class="table-box" data-reveal>
       <table>
         <thead><tr><th scope="col">负载</th><th scope="col">0.3.0-beta.1</th><th scope="col">0.3.0-beta.2</th></tr></thead>
         <tbody>
-          <tr><td class="mono"><b>fib-rec</b></td><td class="mono">1.66×</td><td class="mono"><b>1.64×</b></td></tr>
-          <tr><td class="mono"><b>fib-iter</b></td><td class="mono">0.82×</td><td class="mono"><b>0.82×</b></td></tr>
-          <tr><td class="mono"><b>qsort</b></td><td class="mono">3.57×</td><td class="mono"><b>3.56×</b></td></tr>
-          <tr><td class="mono"><b>sieve</b></td><td class="mono">3.80×</td><td class="mono"><b>3.84×</b></td></tr>
-          <tr><td class="mono"><b>mandelbrot</b></td><td class="mono">4.65×</td><td class="mono"><b>5.32×</b></td></tr>
-          <tr><td class="mono"><b>matmul</b></td><td class="mono">55.1×</td><td class="mono"><b>54.7×</b></td></tr>
-          <tr><td class="mono"><b>nbody</b></td><td class="mono">20.1×</td><td class="mono"><b>17.3×</b></td></tr>
-          <tr><td class="mono"><b>string-build-find</b></td><td class="mono">1.29×</td><td class="mono"><b>1.29×</b></td></tr>
-          <tr><td class="mono"><b>json-roundtrip</b></td><td class="mono">3.10×</td><td class="mono"><b>3.11×</b></td></tr>
-          <tr><td><b>几何平均</b></td><td class="mono"><b>4.17×</b></td><td class="mono"><b>4.15×</b></td></tr>
+          <tr><td class="mono"><b>fib-rec</b></td><td class="mono">1.95×</td><td class="mono"><b>1.95×</b></td></tr>
+          <tr><td class="mono"><b>fib-iter</b></td><td class="mono">0.81×</td><td class="mono"><b>0.80×</b></td></tr>
+          <tr><td class="mono"><b>qsort</b></td><td class="mono">4.97×</td><td class="mono"><b>4.84×</b></td></tr>
+          <tr><td class="mono"><b>sieve</b></td><td class="mono">4.88×</td><td class="mono"><b>4.81×</b></td></tr>
+          <tr><td class="mono"><b>mandelbrot</b></td><td class="mono">3.91×</td><td class="mono"><b>2.57×</b></td></tr>
+          <tr><td class="mono"><b>matmul</b></td><td class="mono">82.7×</td><td class="mono"><b>79.8×</b></td></tr>
+          <tr><td class="mono"><b>nbody</b></td><td class="mono">18.7×</td><td class="mono"><b>16.9×</b></td></tr>
+          <tr><td class="mono"><b>string-build-find</b></td><td class="mono">1.31×</td><td class="mono"><b>1.31×</b></td></tr>
+          <tr><td class="mono"><b>json-roundtrip</b></td><td class="mono">3.62×</td><td class="mono"><b>3.66×</b></td></tr>
+          <tr><td><b>几何平均</b></td><td class="mono"><b>4.69×</b></td><td class="mono"><b>4.39×</b></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="lead" data-reveal style="color:var(--muted)">有几项负载在 C 里只跑几毫秒，比值以进程启动为主。matmul 与 nbody 仍是最大的落后项。与 0.3.0-beta.1 相比，九项几何平均基本持平：nbody 快了约 14%，mandelbrot 慢了约 14%，原因是本版新增的循环寄存器分配对浮点运算还没做完优化。</p>
+    <p class="lead" data-reveal style="color:var(--muted)">有几项负载在 C 里只跑几毫秒，比值以进程启动为主。matmul 与 nbody 仍是最大的落后项。与 0.3.0-beta.1 相比，九项几何平均快了约 6%：mandelbrot 快了约 34%，nbody 与 matmul 分别快了约 9% 与 4%，其余基本持平。</p>
   </div>
 </section>
 
@@ -142,7 +142,7 @@
     <div class="head" data-reveal>
       <p class="kicker">03 / 方法</p>
       <h2 class="h-section" data-scramble="900">怎么测的。</h2>
-      <p class="lead">数字只有在方法公开时才有意义。下面是这组数据的采集条件，完整记录见<a href="https://github.com/yockii/taixu-lang/actions/runs/44054989218">这次运行 ↗</a>；负载源码与对照实现见公开仓的 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo"><code class="inline-code">bench/algo/</code> ↗</a> 与 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo/cmp"><code class="inline-code">bench/algo/cmp/</code> ↗</a>，各版用自己发布时的负载源码。</p>
+      <p class="lead">数字只有在方法公开时才有意义。下面是这组数据的采集条件，完整记录见<a href="https://github.com/yockii/taixu-lang/actions/runs/44121563334">这次运行 ↗</a>；负载源码与对照实现见公开仓的 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo"><code class="inline-code">bench/algo/</code> ↗</a> 与 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo/cmp"><code class="inline-code">bench/algo/cmp/</code> ↗</a>，各版用自己发布时的负载源码。</p>
     </div>
     <ol class="steps wide" data-reveal data-stagger>
       <li><span class="n">01</span><span><b>同一台机器</b><span class="d">GitHub 托管的 Windows x64 机器，各版太虚与三种对照语言在同一次运行里交错测量。</span></span></li>
