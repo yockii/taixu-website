@@ -80,10 +80,10 @@
 <table>
 <thead><tr><th scope="col">系统</th><th scope="col">判定</th><th scope="col">安装包</th><th scope="col">SHA-256</th></tr></thead>
 <tbody>
-<tr><td>Windows x86_64</td><td>PowerShell 里 <code>$env:PROCESSOR_ARCHITECTURE</code> 为 <code>AMD64</code></td><td><code>taixu-0.3.0-beta.2-x86_64-windows.zip</code></td><td><code>c3e2098394525986b7ab4e8c5bf662626b3232fa81e7587e379948518cc030c8</code></td></tr>
-<tr><td>Linux x86_64</td><td><code>uname -s</code> 为 <code>Linux</code>，<code>uname -m</code> 为 <code>x86_64</code></td><td><code>taixu-0.3.0-beta.2-x86_64-linux.tar.gz</code></td><td><code>a631544d14f895eeaf0c8579dcf2aab7d595481831d59b66de54d23592984c68</code></td></tr>
-<tr><td>macOS Apple 芯片</td><td><code>uname -s</code> 为 <code>Darwin</code>，<code>uname -m</code> 为 <code>arm64</code></td><td><code>taixu-0.3.0-beta.2-aarch64-macos.tar.gz</code></td><td><code>99899614260d708c8a563dc4d68a13ca1da818a4b1adaf73f9d284336ad3d897</code></td></tr>
-<tr><td>macOS Intel</td><td><code>uname -s</code> 为 <code>Darwin</code>，<code>uname -m</code> 为 <code>x86_64</code></td><td><code>taixu-0.3.0-beta.2-x86_64-macos.tar.gz</code></td><td><code>44f010555902d51ac8e57bd56715953006d26d1a76e061a83f0dbdae28c4ecac</code></td></tr>
+<tr><td>Windows x86_64</td><td>PowerShell 里 <code>$env:PROCESSOR_ARCHITECTURE</code> 为 <code>AMD64</code></td><td><code>taixu-0.3.0-beta.2-x86_64-windows.zip</code></td><td><code>b9aa3eb45398e985820db5c251b05e7f22a13e776008e826a1997b2e1125cb45</code></td></tr>
+<tr><td>Linux x86_64</td><td><code>uname -s</code> 为 <code>Linux</code>，<code>uname -m</code> 为 <code>x86_64</code></td><td><code>taixu-0.3.0-beta.2-x86_64-linux.tar.gz</code></td><td><code>16d63369b641c1da421f7a1f43138d3f8901645ff9aed6dc335d42b336752b2c</code></td></tr>
+<tr><td>macOS Apple 芯片</td><td><code>uname -s</code> 为 <code>Darwin</code>，<code>uname -m</code> 为 <code>arm64</code></td><td><code>taixu-0.3.0-beta.2-aarch64-macos.tar.gz</code></td><td><code>9850abdbe9aef022a8a31fca862796a2884631a293e2df94ea3f501f32860305</code></td></tr>
+<tr><td>macOS Intel</td><td><code>uname -s</code> 为 <code>Darwin</code>，<code>uname -m</code> 为 <code>x86_64</code></td><td><code>taixu-0.3.0-beta.2-x86_64-macos.tar.gz</code></td><td><code>84128792b871682aea690c350abe628b56654e5de5c81ea49966f7b11c7f9a3d</code></td></tr>
 </tbody>
 </table>
 </div>
@@ -95,7 +95,7 @@
   <div class="code-bar"><span>sh</span><button class="copy-btn" type="button">复制</button></div>
 <pre><code data-lang="sh">VER=0.3.0-beta.2
 FILE=taixu-$VER-aarch64-macos.tar.gz
-SHA=99899614260d708c8a563dc4d68a13ca1da818a4b1adaf73f9d284336ad3d897
+SHA=9850abdbe9aef022a8a31fca862796a2884631a293e2df94ea3f501f32860305
 TMP=$(mktemp -d)
 curl -fsSL -o "$TMP/$FILE" "https://github.com/yockii/taixu-lang/releases/download/v$VER/$FILE"
 # Linux 有 sha256sum，macOS 用 shasum -a 256
@@ -106,7 +106,7 @@ if command -v sha256sum &gt;/dev/null; then echo "$SHA  $TMP/$FILE" | sha256sum 
   <div class="code-bar"><span>powershell</span><button class="copy-btn" type="button">复制</button></div>
 <pre><code data-lang="powershell">$Ver = '0.3.0-beta.2'
 $File = "taixu-$Ver-x86_64-windows.zip"
-$Sha = 'c3e2098394525986b7ab4e8c5bf662626b3232fa81e7587e379948518cc030c8'
+$Sha = 'b9aa3eb45398e985820db5c251b05e7f22a13e776008e826a1997b2e1125cb45'
 $Tmp = Join-Path $env:TEMP "taixu-$Ver-download"
 New-Item -ItemType Directory -Force $Tmp | Out-Null
 Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/yockii/taixu-lang/releases/download/v$Ver/$File" -OutFile "$Tmp\$File"

@@ -21,10 +21,10 @@
 
 | 系统 | 判定 | 安装包 | SHA-256 |
 |---|---|---|---|
-| Windows x86_64 | PowerShell 里 `$env:PROCESSOR_ARCHITECTURE` 为 `AMD64` | `taixu-0.3.0-beta.2-x86_64-windows.zip` | `c3e2098394525986b7ab4e8c5bf662626b3232fa81e7587e379948518cc030c8` |
-| Linux x86_64 | `uname -s` 为 `Linux`，`uname -m` 为 `x86_64` | `taixu-0.3.0-beta.2-x86_64-linux.tar.gz` | `a631544d14f895eeaf0c8579dcf2aab7d595481831d59b66de54d23592984c68` |
-| macOS Apple 芯片 | `uname -s` 为 `Darwin`，`uname -m` 为 `arm64` | `taixu-0.3.0-beta.2-aarch64-macos.tar.gz` | `99899614260d708c8a563dc4d68a13ca1da818a4b1adaf73f9d284336ad3d897` |
-| macOS Intel | `uname -s` 为 `Darwin`，`uname -m` 为 `x86_64` | `taixu-0.3.0-beta.2-x86_64-macos.tar.gz` | `44f010555902d51ac8e57bd56715953006d26d1a76e061a83f0dbdae28c4ecac` |
+| Windows x86_64 | PowerShell 里 `$env:PROCESSOR_ARCHITECTURE` 为 `AMD64` | `taixu-0.3.0-beta.2-x86_64-windows.zip` | `b9aa3eb45398e985820db5c251b05e7f22a13e776008e826a1997b2e1125cb45` |
+| Linux x86_64 | `uname -s` 为 `Linux`，`uname -m` 为 `x86_64` | `taixu-0.3.0-beta.2-x86_64-linux.tar.gz` | `16d63369b641c1da421f7a1f43138d3f8901645ff9aed6dc335d42b336752b2c` |
+| macOS Apple 芯片 | `uname -s` 为 `Darwin`，`uname -m` 为 `arm64` | `taixu-0.3.0-beta.2-aarch64-macos.tar.gz` | `9850abdbe9aef022a8a31fca862796a2884631a293e2df94ea3f501f32860305` |
+| macOS Intel | `uname -s` 为 `Darwin`，`uname -m` 为 `x86_64` | `taixu-0.3.0-beta.2-x86_64-macos.tar.gz` | `84128792b871682aea690c350abe628b56654e5de5c81ea49966f7b11c7f9a3d` |
 
 - macOS 需要 13 及以上（`sw_vers -productVersion`）。
 - 其他组合（Windows on ARM、Linux arm64 等）这一版没有安装包：告诉用户暂不支持，不要改装别的平台的包。
@@ -40,7 +40,7 @@ macOS／Linux（下例为 Apple 芯片；换成对应的包名与哈希）：
 ```sh
 VER=0.3.0-beta.2
 FILE=taixu-$VER-aarch64-macos.tar.gz
-SHA=99899614260d708c8a563dc4d68a13ca1da818a4b1adaf73f9d284336ad3d897
+SHA=9850abdbe9aef022a8a31fca862796a2884631a293e2df94ea3f501f32860305
 TMP=$(mktemp -d)
 curl -fsSL -o "$TMP/$FILE" "https://github.com/yockii/taixu-lang/releases/download/v$VER/$FILE"
 # Linux 有 sha256sum，macOS 用 shasum -a 256
@@ -52,7 +52,7 @@ Windows（PowerShell）：
 ```powershell
 $Ver = '0.3.0-beta.2'
 $File = "taixu-$Ver-x86_64-windows.zip"
-$Sha = 'c3e2098394525986b7ab4e8c5bf662626b3232fa81e7587e379948518cc030c8'
+$Sha = 'b9aa3eb45398e985820db5c251b05e7f22a13e776008e826a1997b2e1125cb45'
 $Tmp = Join-Path $env:TEMP "taixu-$Ver-download"
 New-Item -ItemType Directory -Force $Tmp | Out-Null
 Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/yockii/taixu-lang/releases/download/v$Ver/$File" -OutFile "$Tmp\$File"

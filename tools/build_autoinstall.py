@@ -118,7 +118,7 @@ hero = '''<main id="main">
   <canvas class="constellation" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="head" style="max-width:860px;gap:20px">
-      <p class="kicker">Auto Install · 0.3.0-beta.1</p>
+      <p class="kicker">Auto Install · 0.3.0-beta.2</p>
       <h1>交给 AI <em>安装太虚</em></h1>
       <p class="lead">把下面这句话发给你的编程代理（Claude Code、Codex、Cursor、VS Code Copilot、Gemini CLI 等）。它会按本页说明下载、校验、安装、加入 PATH，再接好 MCP 与 Taixu Skill；动手前先向你说明计划。</p>
       <div class="cmdline prompt-line">
