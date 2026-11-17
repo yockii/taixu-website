@@ -189,7 +189,7 @@ LICENSE-MIT</pre>
     </div>
     <ol class="steps wide" data-reveal data-stagger>
       <li><span class="n">01</span><span><b>beta 不承诺可靠性与兼容性</b><span class="d">语言与工具链仍会变化，可能遇到错误、崩溃或错误的结果。</span></span></li>
-      <li><span class="n">02</span><span><b>HTTPS 只支持 TLS 1.3</b><span class="d">不回退到 1.2；服务器签名只接受 RSA-PSS-SHA256 与 ECDSA P-256／SHA-256，用 P-384 证书密钥的站点无法连接；Linux 上的证书链不接受 RSA-SHA384 签名；RSA 密钥至少 2048 位。</span></span></li>
+      <li><span class="n">02</span><span><b>HTTPS 只支持 TLS 1.3</b><span class="d">不回退到 1.2，支持的证书与签名算法也还有限，部分网站会连不上。</span></span></li>
       <li><span class="n">03</span><span><b>还不能编出给 C 调用的库</b><span class="d"><code class="inline-code">build --lib</code> 只检查库模块能否编成原生代码，产物不是库。</span></span></li>
       <li><span class="n">04</span><span><b>Windows 产物没有 PDB</b><span class="d">Linux、macOS 产物带函数符号；Windows 的调试符号尚未提供。</span></span></li>
       <li><span class="n">05</span><span><b>disasm 只支持 x86_64</b><span class="d"><code class="inline-code">taixu disasm</code> 暂不能显示 arm64 汇编。</span></span></li>

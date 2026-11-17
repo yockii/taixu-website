@@ -123,14 +123,14 @@
       <div class="mod-groups">
         <div class="mod-group"><h3>集合</h3><div class="mods"><span>std/collect</span><span>std/collections</span></div><p>泛型 map、filter、fold、sortBy、binarySearch 与堆；List 高阶工具。</p></div>
         <div class="mod-group"><h3>文本</h3><div class="mods"><span>std/string</span><span>std/utf8</span><span>std/text</span><span>std/strconv</span><span>std/fmt</span></div><p>split、join、replace，Unicode 大小写与空白，UTF-8 码点，数值与字符串互转，<code>{}</code> 占位格式化。</p></div>
-        <div class="mod-group"><h3>字节与编码</h3><div class="mods"><span>std/bytes</span><span>std/base64</span><span>std/hash</span></div><p>字节缓冲与 hex，RFC 4648 base64，SHA-256。</p></div>
-        <div class="mod-group"><h3>数据格式</h3><div class="mods"><span>std/json</span><span>std/csv</span><span>std/regexp</span></div><p>JSON 解析与规范输出（对象键保持插入顺序），CSV，带步数上限的回溯正则。</p></div>
-        <div class="mod-group"><h3>压缩与图像</h3><div class="mods"><span>std/compress</span><span>std/gzip</span><span>std/image</span></div><p>DEFLATE、zlib、gzip 解压与存储式写出，有界的 gzip 解码，PNG 解码为 RGBA8。</p></div>
+        <div class="mod-group"><h3>字节与编码</h3><div class="mods"><span>std/bytes</span><span>std/base64</span><span>std/hash</span></div><p>字节缓冲与 hex，base64，SHA-256。</p></div>
+        <div class="mod-group"><h3>数据格式</h3><div class="mods"><span>std/json</span><span>std/csv</span><span>std/regexp</span></div><p>JSON（对象键保持插入顺序），CSV，正则表达式。</p></div>
+        <div class="mod-group"><h3>压缩与图像</h3><div class="mods"><span>std/compress</span><span>std/gzip</span><span>std/image</span></div><p>DEFLATE、zlib、gzip 解压，PNG 解码。</p></div>
         <div class="mod-group"><h3>数学与排序</h3><div class="mods"><span>std/math</span><span>std/random</span><span>std/sort</span></div><p>数学函数，可设种子的伪随机数（同种子同序列），稳定排序。</p></div>
         <div class="mod-group"><h3>时间</h3><div class="mods"><span>std/time</span><span>std/datetime</span></div><p>当前时间，确定性的日期格式化。</p></div>
         <div class="mod-group"><h3>系统与文件</h3><div class="mods"><span>std/os</span><span>std/path</span><span>std/fs</span><span>std/dir</span><span>std/file</span></div><p>环境变量与命令行参数，路径处理，文件系统，递归建目录，流式文件读写。</p></div>
-        <div class="mod-group"><h3>网络</h3><div class="mods"><span>std/net</span><span>std/net_socket</span><span>std/http_client</span><span>std/tls13_client</span><span>std/url</span><span>std/ip</span><span>std/deadline</span></div><p>TCP 与最小的 HTTP 客户端；非阻塞套接字，纯太虚的 TLS 1.3 与 HTTP/1.1 客户端（支持重定向、chunked、gzip 与截止时间），URI 解析与 IP 字面量。</p></div>
-        <div class="mod-group"><h3>加密与证书</h3><div class="mods"><span>std/crypto/*</span><span>std/x509</span><span>std/pem</span></div><p>AES-GCM、HMAC、HKDF、SHA-384、X25519、P-256／P-384、RSA 与操作系统随机源；X.509 解析，证书按平台信任库验证，PEM。</p></div>
+        <div class="mod-group"><h3>网络</h3><div class="mods"><span>std/net</span><span>std/net_socket</span><span>std/http_client</span><span>std/tls13_client</span><span>std/url</span><span>std/ip</span><span>std/deadline</span></div><p>TCP 与套接字，纯太虚的 TLS 1.3 与 HTTP/1.1 客户端，URL 解析。</p></div>
+        <div class="mod-group"><h3>加密与证书</h3><div class="mods"><span>std/crypto/*</span><span>std/x509</span><span>std/pem</span></div><p>常用的加密、哈希、密钥交换与签名验证，系统随机源；X.509 证书按系统信任库验证。</p></div>
         <div class="mod-group"><h3>并发与事件</h3><div class="mods"><span>std/task</span><span>std/pool</span><span>std/events</span></div><p>带并发上限的 TaskGroup 与超时，分道执行池，事件订阅与派发。</p></div>
       </div>
       <p>失败一律经 <code>T | Error</code> 返回，用 <code>?</code> 传播或 <code>catch</code> 处理。平台相关的部分按目标分别实现，同名模块在各目标上的导出面相同。各模块的关键导出见<a href="https://github.com/yockii/taixu-lang/blob/main/docs/quickref.md">速查手册 ↗</a>第 5 节；完整签名以 <code>taixu doc &lt;模块文件&gt;</code> 的输出或<a href="https://github.com/yockii/taixu-lang/tree/main/stdlib/src">标准库源码 ↗</a>为准。</p>
@@ -168,7 +168,7 @@
             <tr><td><code>--heap-check</code></td><td>build、run、test</td><td>页堆检查：越界、释放后使用、重复释放（很慢，只供调试）</td></tr>
             <tr><td><code>--debug</code></td><td>build、run</td><td>插桩调试构建；run 时在标准输入输出上开调试会话</td></tr>
             <tr><td><code>--strip</code></td><td>build</td><td>Linux、macOS 产物不带函数符号</td></tr>
-            <tr><td><code>--regalloc=on|off</code></td><td>build、run、test、disasm</td><td>循环中的标量局部变量使用持久寄存器，缺省 on；off 用于成对比较</td></tr>
+            <tr><td><code>--regalloc=on|off</code></td><td>build、run、test、disasm</td><td>循环寄存器分配，缺省 on；off 用于对比</td></tr>
             <tr><td><code>--map &lt;文件&gt;</code></td><td>build</td><td>写出链接映射：放入产物的函数及其范围（运行时按需链入）</td></tr>
             <tr><td><code>--format=json</code></td><td>run、test、fmt、doc 等</td><td>机读输出</td></tr>
           </tbody>

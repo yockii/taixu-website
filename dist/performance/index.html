@@ -114,8 +114,7 @@
         </tbody>
       </table>
     </div>
-    <p class="lead" data-reveal style="color:var(--muted)">fib-rec、fib-iter、sieve、string-build-find 在 C 里只跑几毫秒，比值以进程启动为主。matmul 与 nbody（浮点与数组访问密集）仍是最大的落后项。与 0.3.0-beta.1 相比，nbody 快了约 14%，九项几何平均基本持平。</p>
-    <p class="lead" data-reveal style="color:var(--muted)"><b style="color:var(--amber)">mandelbrot 慢了约 14%。</b>0.3.0-beta.2 新加的循环寄存器分配把迭代变量 <code class="inline-code">zr</code>、<code class="inline-code">zi</code> 放进了通用寄存器，循环里每次读写都要在通用寄存器与浮点寄存器之间搬运，<code class="inline-code">2.0 * zr * zi</code> 还多经一次内存中转，都落在循环携带的依赖链上。同一对程序在一台 Intel 笔记本上 0.3.0-beta.2 反而快约 13%，差别随处理器而变。</p>
+    <p class="lead" data-reveal style="color:var(--muted)">有几项负载在 C 里只跑几毫秒，比值以进程启动为主。matmul 与 nbody 仍是最大的落后项。与 0.3.0-beta.1 相比，九项几何平均基本持平：nbody 快了约 14%，mandelbrot 慢了约 14%，原因是本版新增的循环寄存器分配对浮点运算还没做完优化。</p>
   </div>
 </section>
 
@@ -143,13 +142,13 @@
     <div class="head" data-reveal>
       <p class="kicker">03 / 方法</p>
       <h2 class="h-section" data-scramble="900">怎么测的。</h2>
-      <p class="lead">数字只有在方法公开时才有意义。下面是这组数据的采集条件（2026-11-17 的<a href="https://github.com/yockii/taixu-lang/actions/runs/44054989218">这次运行 ↗</a>）；负载源码与对照实现见公开仓的 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo"><code class="inline-code">bench/algo/</code> ↗</a> 与 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo/cmp"><code class="inline-code">bench/algo/cmp/</code> ↗</a>，各版用自己发布时的负载源码。</p>
+      <p class="lead">数字只有在方法公开时才有意义。下面是这组数据的采集条件，完整记录见<a href="https://github.com/yockii/taixu-lang/actions/runs/44054989218">这次运行 ↗</a>；负载源码与对照实现见公开仓的 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo"><code class="inline-code">bench/algo/</code> ↗</a> 与 <a href="https://github.com/yockii/taixu-lang/tree/main/bench/algo/cmp"><code class="inline-code">bench/algo/cmp/</code> ↗</a>，各版用自己发布时的负载源码。</p>
     </div>
     <ol class="steps wide" data-reveal data-stagger>
-      <li><span class="n">01</span><span><b>同一台机器</b><span class="d">GitHub 托管的 Windows x64 机器（AMD EPYC 9V45 96-Core Processor）。各版太虚与三种对照语言在同一次运行里按轮交错测量。</span></span></li>
+      <li><span class="n">01</span><span><b>同一台机器</b><span class="d">GitHub 托管的 Windows x64 机器，各版太虚与三种对照语言在同一次运行里交错测量。</span></span></li>
       <li><span class="n">02</span><span><b>指标</b><span class="d">以子进程 CPU 周期为准，同时记录墙钟时间。</span></span></li>
       <li><span class="n">03</span><span><b>采样</b><span class="d">每项先预热 1 次，再采 11 个样本，取中位数。</span></span></li>
-      <li><span class="n">04</span><span><b>对照编译</b><span class="d">C 用 <code class="inline-code">gcc -O2 -ffp-contract=off</code>（GCC 15.2.0，MinGW-w64），Go 用 <code class="inline-code">go build</code>（Go 1.24.13），Rust 用 <code class="inline-code">rustc -O</code>（Rust 1.99.1）。太虚用各版的正式发布包。</span></span></li>
+      <li><span class="n">04</span><span><b>对照编译</b><span class="d">C 用 <code class="inline-code">gcc -O2</code>，Go 用 <code class="inline-code">go build</code>，Rust 用 <code class="inline-code">rustc -O</code>；太虚用各版的正式发布包。</span></span></li>
       <li><span class="n">05</span><span><b>结果一致才计入</b><span class="d">九项负载与对照实现必须输出逐字节相同的校验和，否则不计入。</span></span></li>
       <li><span class="n">06</span><span><b>差距一并公开</b><span class="d">落后的负载与领先的负载放在一起，随版本更新。</span></span></li>
     </ol>
